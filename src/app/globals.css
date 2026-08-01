@@ -1,0 +1,251 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ivory: #fdfbf7;
+  --color-cream: #f6f1ea;
+  --color-charcoal: #141414;
+  --color-charcoal-card: #1e1e1e;
+  --color-gold: #c5a059;
+  --color-gold-light: #e6ca85;
+  --color-gold-dark: #9a7832;
+  --color-gold-champagne: #d4af37;
+  --color-slate-text: #4a5568;
+  --color-sage: #7c8c74;
+  --font-cinzel: var(--font-cinzel-family), "Cinzel", serif;
+  --font-serif: var(--font-serif-family), "Playfair Display", serif;
+  --font-sans: var(--font-sans-family), "Plus Jakarta Sans", sans-serif;
+}
+
+:root {
+  --pl-dock-space: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  --pl-page-min: calc(100svh - var(--pl-dock-space));
+}
+
+html {
+  height: auto;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  -webkit-overflow-scrolling: touch;
+  background-color: #141414;
+}
+
+body {
+  background-color: #141414;
+  color: #141414;
+  font-family: var(--font-sans);
+  margin: 0;
+  padding: 0;
+  min-height: 100%;
+  overflow-x: hidden;
+  overflow-y: visible;
+}
+
+@media (min-width: 768px) {
+  html,
+  body {
+    background-color: #0a0a0a;
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+button,
+a,
+[role="button"] {
+  -webkit-tap-highlight-color: transparent;
+}
+
+button:focus-visible,
+a:focus-visible,
+[role="button"]:focus-visible {
+  outline: 2px solid #c5a059;
+  outline-offset: 3px;
+}
+
+::selection {
+  background-color: #e6ca85;
+  color: #141414;
+}
+
+.magazine-page {
+  background-color: #fdfbf7;
+  background-image: linear-gradient(135deg, rgba(255, 255, 255, 0.45), transparent 45%);
+  position: relative;
+  isolation: isolate;
+  overflow: visible;
+  min-height: var(--pl-page-min);
+}
+
+/* Information-heavy pages are allowed to grow instead of clipping on short screens. */
+.page-clip {
+  overflow: hidden;
+}
+
+/* Page 15: a solid, intentional charcoal surface instead of a washed paper overlay. */
+.investment-page {
+  background-color: #171512;
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(197, 160, 89, 0.16), transparent 30%),
+    radial-gradient(circle at 88% 92%, rgba(197, 160, 89, 0.1), transparent 28%),
+    linear-gradient(135deg, #211d18 0%, #12110f 62%, #171512 100%);
+}
+
+@media (min-width: 768px) {
+  .magazine-page {
+    min-height: min(840px, calc(100dvh - 9.5rem));
+    border-radius: 1rem;
+    box-shadow:
+      0 28px 70px -24px rgba(0, 0, 0, 0.75),
+      0 0 0 1px rgba(197, 160, 89, 0.28);
+    border: 1px solid rgba(197, 160, 89, 0.28);
+  }
+}
+
+.page-body {
+  position: relative;
+  z-index: 10;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 0.875rem 1.25rem 1rem;
+}
+
+@media (min-width: 640px) {
+  .page-body {
+    padding: 1.25rem 2.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-body {
+    padding: 1.5rem 3rem;
+  }
+}
+
+@media (max-width: 380px) {
+  .page-body {
+    padding-inline: 1rem;
+  }
+
+  .page-header-bar,
+  .page-footer-bar {
+    padding-inline: 1rem;
+  }
+}
+
+.page-footer-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.875rem 1.25rem 1.125rem;
+  border-top-width: 1px;
+  font-family: var(--font-cinzel);
+  font-size: 10px;
+}
+
+@media (min-width: 640px) {
+  .page-footer-bar {
+    padding: 1rem 2.5rem 1.5rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-footer-bar {
+    padding: 1.1rem 3rem 1.6rem;
+  }
+}
+
+.page-header-bar {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+  padding: calc(0.85rem + env(safe-area-inset-top, 0px)) 1.25rem 0.7rem;
+  border-bottom: 1px solid rgba(197, 160, 89, 0.3);
+}
+
+@media (min-width: 640px) {
+  .page-header-bar {
+    padding: 1.5rem 2.5rem 0.85rem;
+  }
+}
+
+@media (min-width: 768px) {
+  .page-header-bar {
+    padding: 1.75rem 3rem 1rem;
+  }
+}
+
+.page-inner-border {
+  border: 1px solid rgba(197, 160, 89, 0.3);
+  outline: 6px solid rgba(253, 251, 247, 0.95);
+}
+
+.gold-gradient-text {
+  background: linear-gradient(135deg, #d4af37 0%, #c5a059 50%, #9a7832 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #d4af37 0%, #c5a059 100%);
+}
+
+.scrollbar-thin {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(197, 160, 89, 0.35) transparent;
+}
+
+.scrollbar-thin::-webkit-scrollbar {
+  height: 4px;
+}
+
+.scrollbar-thin::-webkit-scrollbar-thumb {
+  background: rgba(197, 160, 89, 0.35);
+  border-radius: 999px;
+}
+
+.print-all-pages {
+  display: none;
+}
+
+@media print {
+  html,
+  body {
+    background-color: #ffffff !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+  }
+
+  #magazine-toolbar,
+  #magazine-footer,
+  #interactive-magazine {
+    display: none !important;
+  }
+
+  .print-all-pages {
+    display: block !important;
+  }
+
+  .magazine-page {
+    box-shadow: none !important;
+    border: none !important;
+    width: 100% !important;
+    min-height: 100vh !important;
+    page-break-after: always !important;
+    display: block !important;
+    margin: 0 !important;
+  }
+
+  .print-all-pages .page-view {
+    display: block !important;
+  }
+}

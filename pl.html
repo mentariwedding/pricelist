@@ -1,0 +1,1078 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MENTARI WEDDING ORGANIZER - Ultimate Investment Lookbook 2026/2027</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#FDFBF7',
+            cream: '#F6F1EA',
+            charcoal: '#141414',
+            charcoalCard: '#1E1E1E',
+            gold: {
+              DEFAULT: '#C5A059',
+              light: '#E6CA85',
+              dark: '#9A7832',
+              champagne: '#D4AF37'
+            },
+            slateText: '#4A5568',
+            sage: '#7C8C74',
+          },
+          fontFamily: {
+            cinzel: ['Cinzel', 'serif'],
+            serif: ['Playfair Display', 'serif'],
+            sans: ['Plus Jakarta Sans', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    body {
+      background-color: #0A0A0A;
+      color: #141414;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    /* Magazine Page Container */
+    .magazine-page {
+      background-color: #FDFBF7;
+      box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.9), 0 0 30px rgba(197, 160, 89, 0.2);
+      border: 1px solid rgba(197, 160, 89, 0.35);
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Inner Double Border Motif */
+    .page-inner-border {
+      border: 1px solid rgba(197, 160, 89, 0.3);
+      outline: 6px solid rgba(253, 251, 247, 0.95);
+    }
+
+    .gold-gradient-text {
+      background: linear-gradient(135deg, #D4AF37 0%, #C5A059 50%, #9A7832 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .gold-gradient-bg {
+      background: linear-gradient(135deg, #D4AF37 0%, #C5A059 100%);
+    }
+
+    /* Page Flip Animation */
+    .page-view {
+      display: none;
+      animation: magazineFlip 0.45s ease-out forwards;
+    }
+
+    .page-view.active {
+      display: block;
+    }
+
+    @keyframes magazineFlip {
+      from { opacity: 0; transform: scale(0.98) translateY(12px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    /* Print PDF Stylesheet */
+    @media print {
+      body {
+        background-color: #FFFFFF !important;
+      }
+      #magazine-toolbar, #magazine-footer {
+        display: none !important;
+      }
+      .magazine-page {
+        box-shadow: none !important;
+        border: none !important;
+        width: 100% !important;
+        min-height: 100vh !important;
+        page-break-after: always !important;
+        display: block !important;
+        margin: 0 !important;
+      }
+      .page-view {
+        display: block !important;
+      }
+    }
+  </style>
+</head>
+<body class="antialiased min-h-screen flex flex-col justify-between selection:bg-gold-light selection:text-charcoal">
+
+  <!-- TOP MAGAZINE TOOLBAR -->
+  <header id="magazine-toolbar" class="sticky top-0 z-50 bg-charcoal/95 backdrop-blur-md border-b border-gold/40 text-white px-4 py-3 shadow-2xl">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-4">
+      
+      <!-- Brand Header -->
+      <div class="flex items-center space-x-3">
+        <div class="w-8 h-8 rounded-full gold-gradient-bg flex items-center justify-center text-white shadow-md">
+          <i class="fa-solid fa-sun text-xs"></i>
+        </div>
+        <div>
+          <h1 class="font-cinzel text-xs font-extrabold tracking-widest text-white uppercase">MENTARI WEDDING</h1>
+          <p class="text-[9px] text-gold tracking-wider">Planned to Perfection • Guide 2026/2027</p>
+        </div>
+      </div>
+
+      <!-- Page Controller -->
+      <div class="flex items-center space-x-3 bg-charcoalCard px-4 py-1.5 rounded-full border border-gold/40 shadow-inner">
+        <button onclick="prevPage()" id="btn-prev" class="text-gold hover:text-white transition-colors">
+          <i class="fa-solid fa-chevron-left text-xs"></i>
+        </button>
+        
+        <span class="text-xs font-cinzel tracking-widest text-gray-300">
+          PAGE <span id="current-page-num" class="text-gold font-bold">01</span> / <span id="total-pages-num">15</span>
+        </span>
+
+        <button onclick="nextPage()" id="btn-next" class="text-gold hover:text-white transition-colors">
+          <i class="fa-solid fa-chevron-right text-xs"></i>
+        </button>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="flex items-center space-x-3 text-xs">
+        <button onclick="window.print()" class="px-3.5 py-1.5 rounded-full border border-gold/50 text-gold hover:bg-gold hover:text-white transition-all">
+          <i class="fa-solid fa-file-pdf mr-1.5"></i> Export PDF
+        </button>
+        <a href="https://wa.me/6287777099824?text=Halo%20Mentari%20Wedding%20Organizer,%20saya%20telah%20membaca%20Pricelist%20Lookbook%2015-Halaman%20dan%20ingin%20konsultasi." target="_blank" class="px-4 py-1.5 rounded-full gold-gradient-bg text-white font-semibold hover:brightness-105 transition-all shadow-md">
+          <i class="fa-brands fa-whatsapp mr-1.5"></i> Hubungi WA
+        </a>
+      </div>
+
+    </div>
+  </header>
+
+  <!-- MAGAZINE CONTAINER -->
+  <main class="flex-1 flex items-center justify-center p-3 sm:p-6 md:p-10">
+    <div class="w-full max-w-4xl">
+
+      <!-- ==========================================
+           PAGE 1: COVER PAGE
+           ========================================== -->
+      <div id="page-1" class="page-view active">
+        <div class="magazine-page rounded-2xl min-h-[790px] flex flex-col justify-between text-white relative">
+          <img src="https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80" alt="Mentari Wedding Cover" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-black/70"></div>
+          
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none z-20"></div>
+
+          <div class="relative z-10 p-8 sm:p-12 text-center border-b border-white/20">
+            <span class="inline-block px-4 py-1.5 rounded-full border border-gold/70 text-[10px] font-bold tracking-[0.3em] text-gold uppercase bg-black/50 backdrop-blur-md">
+              Official Pricelist & Services
+            </span>
+          </div>
+
+          <div class="relative z-10 p-8 sm:p-12 text-center my-auto space-y-4">
+            <div class="w-16 h-16 mx-auto rounded-full border border-gold text-gold flex items-center justify-center bg-black/40 backdrop-blur-md mb-3">
+              <i class="fa-solid fa-sun text-2xl"></i>
+            </div>
+            
+            <h1 class="font-cinzel text-4xl sm:text-6xl font-extrabold tracking-[0.18em] text-white uppercase">MENTARI</h1>
+            <p class="font-cinzel text-xs sm:text-sm tracking-[0.5em] text-gold font-semibold uppercase">WEDDING ORGANIZER</p>
+            
+            <p class="font-serif italic text-xl sm:text-2xl text-gray-200 pt-1">"Planned to Perfection"</p>
+            <p class="text-xs text-gray-300 italic font-light">Crafting Your Eternal Moments</p>
+
+            <div class="w-24 h-0.5 bg-gold mx-auto my-4"></div>
+
+            <h2 class="font-cinzel text-xl sm:text-2xl font-bold tracking-widest text-white uppercase">The Wedding Investment Guide</h2>
+            <p class="font-serif text-gold-light italic text-base">Collection 2026 / 2027</p>
+          </div>
+
+          <div class="relative z-10 p-8 sm:p-12 text-center flex justify-between items-end border-t border-white/20 text-xs">
+            <span class="text-gray-300 font-light">Jakarta & Sukabumi Executive Edition</span>
+            <span class="font-cinzel text-gold font-bold tracking-widest">PAGE 01 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 2: TABLE OF CONTENTS & FOUNDER NOTE
+           ========================================== -->
+      <div id="page-2" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Contents & Welcome</span>
+            <span class="font-serif text-xs italic text-slateText">Mentari Wedding Portfolio</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-6 grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+            
+            <div class="space-y-3">
+              <span class="text-[10px] font-bold tracking-widest text-gold uppercase">Daftar Isi Lookbook</span>
+              <h2 class="font-cinzel text-2xl font-bold text-charcoal">Table of Contents</h2>
+              <div class="w-12 h-0.5 bg-gold"></div>
+
+              <ul class="space-y-1.5 text-[11px] text-slateText font-medium">
+                <li class="flex justify-between border-b border-cream pb-1"><span>01. Cover & Executive Edition</span> <span class="text-gold font-bold">Page 01</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>02. Table of Contents & Welcome</span> <span class="text-gold font-bold">Page 02</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>03. Brand Story & Timeless Vision</span> <span class="text-gold font-bold">Page 03</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>04. 4 Pillars of Excellence</span> <span class="text-gold font-bold">Page 04</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>05. Signature Aesthetics Blueprints</span> <span class="text-gold font-bold">Page 05</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>06. Curated Venue Partners</span> <span class="text-gold font-bold">Page 06</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>07. Premium Vendors Directory</span> <span class="text-gold font-bold">Page 07</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>08. Editorial Gallery Showcase</span> <span class="text-gold font-bold">Page 08</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>09. Paket: The Intimate Journey</span> <span class="text-gold font-bold">Page 09</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>10. Paket: The Royal Romance</span> <span class="text-gold font-bold">Page 10</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>11. Paket: The Imperial Luxury</span> <span class="text-gold font-bold">Page 11</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>12. Expanded À La Carte Add-ons</span> <span class="text-gold font-bold">Page 12</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>13. Booking Process & Terms</span> <span class="text-gold font-bold">Page 13</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>14. Interactive Budget Calculator</span> <span class="text-gold font-bold">Page 14</span></li>
+                <li class="flex justify-between border-b border-cream pb-1"><span>15. Back Cover & Studio Contact</span> <span class="text-gold font-bold">Page 15</span></li>
+              </ul>
+            </div>
+
+            <div class="bg-cream/60 p-6 rounded-2xl border border-gold/30 text-center space-y-4">
+              <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=800&q=80" alt="Director Portrait" class="w-24 h-24 rounded-full mx-auto object-cover border-2 border-gold shadow-md">
+              <div class="space-y-1">
+                <h3 class="font-serif text-lg font-bold text-charcoal">Sambutan Direktur</h3>
+                <p class="text-[10px] font-cinzel text-gold tracking-wider">MENTARI WEDDING MANAGEMENT</p>
+              </div>
+              <p class="text-xs text-slateText leading-relaxed italic font-light">
+                "Selamat atas rencana hari bahagia Anda! Kami percaya bahwa setiap pasangan memiliki cerita unik. Tugas kami adalah mewujudkan pernikahan impian Anda menjadi kenyataan yang indah, tenang, dan berkesan tanpa rasa cemas."
+              </p>
+              <div class="font-serif text-sm italic font-bold text-charcoal pt-2 border-t border-gold/20">Mentari & Team</div>
+            </div>
+
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 02 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 3: BRAND STORY & TIMELESS VISION
+           ========================================== -->
+      <div id="page-3" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Brand Story & Vision</span>
+            <span class="font-serif text-xs italic text-slateText">Planned to Perfection</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+            <div class="md:col-span-5 relative">
+              <img src="https://images.unsplash.com/photo-1511285560929-80b456fea0bc?auto=format&fit=crop&w=1000&q=80" alt="Mentari Aesthetic Setup" class="rounded-2xl shadow-lg border border-gold/30 h-[380px] w-full object-cover">
+              <div class="absolute bottom-4 left-4 right-4 bg-black/60 backdrop-blur-sm p-3 rounded-xl border border-gold/30 text-white text-[10px] italic">
+                "Menghadirkan keindahan yang jujur, tanpa harus berlebihan."
+              </div>
+            </div>
+
+            <div class="md:col-span-7 space-y-4">
+              <span class="text-[10px] font-bold tracking-widest text-gold uppercase">Filosofi Mentari Wedding</span>
+              <h2 class="font-serif text-3xl font-bold text-charcoal leading-tight">Estetika Timeless yang Tak Tergerus Waktu</h2>
+              <div class="w-16 h-0.5 bg-gold"></div>
+
+              <p class="text-xs text-slateText leading-relaxed font-light">
+                Di <strong>Mentari Wedding Organizer</strong>, kami tidak sekadar mengejar tren yang cepat hilang. Kami berfokus pada estetika abadi yang akan tetap terlihat indah saat Anda mengenangnya puluhan tahun dari sekarang.
+              </p>
+              <p class="text-xs text-slateText leading-relaxed font-light">
+                Setiap acara yang kami tangani memiliki ciri khas tersendiri: perpaduan antara kemewahan yang tenang (*quiet luxury*), detail yang rapi, dan suasana yang hangat bagi keluarga serta tamu undangan Anda.
+              </p>
+
+              <div class="pt-2 grid grid-cols-3 gap-2 text-center text-[10px]">
+                <div class="bg-cream p-3 rounded-xl border border-gold/20"><div class="font-cinzel font-bold text-base text-gold">2016</div><div class="text-slateText">Berdiri Sejak</div></div>
+                <div class="bg-cream p-3 rounded-xl border border-gold/20"><div class="font-cinzel font-bold text-base text-gold">300+</div><div class="text-slateText">Acara Terselenggara</div></div>
+                <div class="bg-cream p-3 rounded-xl border border-gold/20"><div class="font-cinzel font-bold text-base text-gold">100%</div><div class="text-slateText">Garansi Ketenangan</div></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 03 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 4: 4 PILLARS OF EXCELLENCE
+           ========================================== -->
+      <div id="page-4" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Why Choose Us</span>
+            <span class="font-serif text-xs italic text-slateText">4 Pilar Layanan Mentari</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-6">
+            <div class="text-center max-w-xl mx-auto space-y-2">
+              <h2 class="font-serif text-3xl font-bold text-charcoal">4 Landasan Layanan Mentari</h2>
+              <p class="text-xs text-slateText font-light">Pendampingan penuh dari masa perencanaan hingga hari H tanpa rasa cemas.</p>
+              <div class="w-12 h-0.5 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div class="bg-white p-5 rounded-2xl border border-gold/30 shadow-sm flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-cream border border-gold/30 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-user-tie text-lg"></i></div>
+                <div><h3 class="font-cinzel font-bold text-sm text-charcoal mb-1">1. Dedicated Wedding Manager</h3><p class="text-xs text-slateText leading-relaxed">1 Kontak utama pendampingan dari H-180 hingga D-Day untuk memastikan seluruh detail alur kerja berjalan terstruktur.</p></div>
+              </div>
+
+              <div class="bg-white p-5 rounded-2xl border border-gold/30 shadow-sm flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-cream border border-gold/30 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-gem text-lg"></i></div>
+                <div><h3 class="font-cinzel font-bold text-sm text-charcoal mb-1">2. Curated Premium Vendors</h3><p class="text-xs text-slateText leading-relaxed">Akses ke jaringan vendor dekorasi, catering, MUA & dokumentasi terbaik dengan standar kualitas yang sudah teruji.</p></div>
+              </div>
+
+              <div class="bg-white p-5 rounded-2xl border border-gold/30 shadow-sm flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-cream border border-gold/30 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-palette text-lg"></i></div>
+                <div><h3 class="font-cinzel font-bold text-sm text-charcoal mb-1">3. Tailored Concept & Moodboard</h3><p class="text-xs text-slateText leading-relaxed">Konsep visual, tema dekorasi, & rundown acara yang dipersonalisasi khusus sesuai dengan impian dan karakter pasangan.</p></div>
+              </div>
+
+              <div class="bg-white p-5 rounded-2xl border border-gold/30 shadow-sm flex items-start space-x-4">
+                <div class="w-12 h-12 rounded-xl bg-cream border border-gold/30 text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-chart-line text-lg"></i></div>
+                <div><h3 class="font-cinzel font-bold text-sm text-charcoal mb-1">4. Real-time Budgeting & Timeline</h3><p class="text-xs text-slateText leading-relaxed">Transparansi anggaran real-time dan tracking alur kerja berkala sehingga perencanaan berjalan bebas stres.</p></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 04 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 5: SIGNATURE AESTHETICS BLUEPRINTS
+           ========================================== -->
+      <div id="page-5" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Design Palette</span>
+            <span class="font-serif text-xs italic text-slateText">Signature Aesthetics</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-6">
+            <div class="text-center space-y-1">
+              <h2 class="font-serif text-2xl font-bold text-charcoal">Tiga Cetak Biru Estetika Mentari</h2>
+              <p class="text-xs text-slateText font-light">Landasan visual awal yang dikustomisasi sesuai cerita unik pernikahan Anda.</p>
+              <div class="w-12 h-0.5 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Blueprint 1 -->
+              <div class="bg-white p-4 rounded-2xl border border-gold/30 shadow-sm text-center space-y-3">
+                <div class="w-full h-24 rounded-xl bg-gradient-to-r from-gray-950 via-charcoal to-amber-700 flex items-center justify-center text-gold font-cinzel font-bold text-xs">
+                  MIDNIGHT & GOLD
+                </div>
+                <h3 class="font-cinzel font-bold text-xs text-charcoal">Midnight & Champagne Gold</h3>
+                <p class="text-[10px] text-slateText leading-relaxed">Nuansa kemewahan ballroom malam hari dengan aksen emas hangat dan lighting dramatis.</p>
+              </div>
+
+              <!-- Blueprint 2 -->
+              <div class="bg-white p-4 rounded-2xl border border-gold/30 shadow-sm text-center space-y-3">
+                <div class="w-full h-24 rounded-xl bg-gradient-to-r from-emerald-900 via-stone-300 to-cream flex items-center justify-center text-charcoal font-cinzel font-bold text-xs">
+                  SAGE & CREAM
+                </div>
+                <h3 class="font-cinzel font-bold text-xs text-charcoal">Sage Green & Muted Cream</h3>
+                <p class="text-[10px] text-slateText leading-relaxed">Estetika botanical garden & outdoor modern yang segar, teduh, dan organik.</p>
+              </div>
+
+              <!-- Blueprint 3 -->
+              <div class="bg-white p-4 rounded-2xl border border-gold/30 shadow-sm text-center space-y-3">
+                <div class="w-full h-24 rounded-xl bg-gradient-to-r from-amber-900 via-amber-700 to-amber-100 flex items-center justify-center text-white font-cinzel font-bold text-xs">
+                  TERRACOTTA & IVORY
+                </div>
+                <h3 class="font-cinzel font-bold text-xs text-charcoal">Warm Terracotta & Ivory</h3>
+                <p class="text-[10px] text-slateText leading-relaxed">Sentuhan kehangatan adat modern & nuansa rustic refined yang romantis.</p>
+              </div>
+            </div>
+
+            <div class="p-4 bg-cream/60 rounded-xl border border-gold/20 text-[11px] text-center text-slateText">
+              *Palet warna & desain dapat dikombinasikan secara bebas sesuai dengan tema busana dan dekorasi impian Anda.
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 05 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 6: CURATED VENUE PARTNERS
+           ========================================== -->
+      <div id="page-6" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Venue Directory</span>
+            <span class="font-serif text-xs italic text-slateText">Mitra Lokasi Gedung & Taman</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-6">
+            <div class="text-center space-y-1">
+              <h2 class="font-serif text-2xl font-bold text-charcoal">Mitra Venue Pernikahan Pilihan</h2>
+              <p class="text-xs text-slateText font-light">Gedung, ballroom, dan taman terbaik di Jabodetabek, Bandung, Sukabumi & sekitarnya.</p>
+              <div class="w-12 h-0.5 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+              <!-- Venue 1 -->
+              <div class="bg-white rounded-2xl border border-gold/30 overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=600&q=80" alt="5-Star Hotel Ballroom" class="h-32 w-full object-cover">
+                <div class="p-4 space-y-1">
+                  <span class="text-[9px] font-bold text-gold uppercase">Grand Ballroom</span>
+                  <h3 class="font-cinzel font-bold text-xs text-charcoal">5-Star Hotel & Convention</h3>
+                  <p class="text-[10px] text-slateText leading-tight">Akses ballroom bintang lima di Jakarta, Bandung, dan convention hall utama.</p>
+                </div>
+              </div>
+
+              <!-- Venue 2 -->
+              <div class="bg-white rounded-2xl border border-gold/30 overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=600&q=80" alt="Outdoor Lawn Garden" class="h-32 w-full object-cover">
+                <div class="p-4 space-y-1">
+                  <span class="text-[9px] font-bold text-gold uppercase">Outdoor Lawn & Garden</span>
+                  <h3 class="font-cinzel font-bold text-xs text-charcoal">Pontis Green & Heritage Lawn</h3>
+                  <p class="text-[10px] text-slateText leading-tight">Area outdoor asri dan rumput hijau luas yang sangat pas untuk intimate wedding.</p>
+                </div>
+              </div>
+
+              <!-- Venue 3 -->
+              <div class="bg-white rounded-2xl border border-gold/30 overflow-hidden shadow-sm">
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=600&q=80" alt="Glasshouse Pavilion" class="h-32 w-full object-cover">
+                <div class="p-4 space-y-1">
+                  <span class="text-[9px] font-bold text-gold uppercase">Glasshouse Pavilion</span>
+                  <h3 class="font-cinzel font-bold text-xs text-charcoal">Modern Botanical Glasshouse</h3>
+                  <p class="text-[10px] text-slateText leading-tight">Konsep paviliun kaca modern dengan tata AC penuh dan nuansa alam sekitar.</p>
+                </div>
+              </div>
+            </div>
+
+            <div class="bg-cream/60 p-4 rounded-xl border border-gold/20 text-[11px] text-slateText flex items-center space-x-3">
+              <i class="fa-solid fa-map-location-dot text-gold text-base"></i>
+              <span><strong>Layanan Survey Venue:</strong> Tim Mentari Wedding siap mendampingi Anda untuk survei lokasi dan negosiasi layout teknis.</span>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 06 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 7: PREMIUM VENDORS DIRECTORY
+           ========================================== -->
+      <div id="page-7" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Curated Partners</span>
+            <span class="font-serif text-xs italic text-slateText">Ekosistem Vendor Kurasi</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-5">
+            <div class="text-center space-y-1">
+              <h2 class="font-serif text-2xl font-bold text-charcoal">Vendor Berpengalaman Mitra Mentari</h2>
+              <p class="text-xs text-slateText font-light">Dikurasi ketat untuk menjaga kerapian, rasa katering, & estetika visual.</p>
+              <div class="w-12 h-0.5 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-xs">
+              
+              <div class="p-3.5 bg-white rounded-xl border border-gold/20 flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-cream text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-utensils"></i></div>
+                <div>
+                  <h3 class="font-cinzel font-bold text-charcoal">Gourmet Fine Catering</h3>
+                  <p class="text-[10px] text-slateText">Prasmanan rasa nusantara & internasional, food stall premium, & dessert bar.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 bg-white rounded-xl border border-gold/20 flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-cream text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-wand-magic-sparkles"></i></div>
+                <div>
+                  <h3 class="font-cinzel font-bold text-charcoal">Floral & Decor Atelier</h3>
+                  <p class="text-[10px] text-slateText">Rangkaian bunga segar (fresh flowers), lighting panggung, & struktur 3D pelaminan.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 bg-white rounded-xl border border-gold/20 flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-cream text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-camera-retro"></i></div>
+                <div>
+                  <h3 class="font-cinzel font-bold text-charcoal">Editorial Photo & Video</h3>
+                  <p class="text-[10px] text-slateText">Dokumentasi cinematic 4K, drone udara, & fast-track highlight video D-Day.</p>
+                </div>
+              </div>
+
+              <div class="p-3.5 bg-white rounded-xl border border-gold/20 flex items-center space-x-3">
+                <div class="w-10 h-10 rounded-lg bg-cream text-gold flex items-center justify-center flex-shrink-0"><i class="fa-solid fa-spray-can-sparkles"></i></div>
+                <div>
+                  <h3 class="font-cinzel font-bold text-charcoal">Couture MUA & Attire</h3>
+                  <p class="text-[10px] text-slateText">Koleksi busana akad & resepsi (Nasional / Adat Sunda, Jawa, Solo, Minang) + MUA hits.</p>
+                </div>
+              </div>
+
+            </div>
+
+            <div class="p-4 bg-cream/50 rounded-xl border border-gold/20 text-[11px] text-center text-slateText">
+              *Mentari Wedding memberikan fleksibilitas penuh bagi calon pengantin yang membawa vendor pilihan pribadi.
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 07 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 8: EDITORIAL MOODBOARD SHOWCASE
+           ========================================== -->
+      <div id="page-8" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Visual Gallery</span>
+            <span class="font-serif text-xs italic text-slateText">Editorial Gallery & Moodboard</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-4">
+            <div class="text-center space-y-1">
+              <h2 class="font-serif text-2xl font-bold text-charcoal">Momen Abadi yang Terabadikan</h2>
+              <p class="text-xs text-slateText font-light">Dokumentasi momen-momen khidmat dan hangat hasil karya pendampingan kami.</p>
+            </div>
+
+            <div class="grid grid-cols-12 gap-3 h-[420px]">
+              <div class="col-span-7 h-full relative overflow-hidden rounded-2xl border border-gold/30 group">
+                <img src="https://images.unsplash.com/photo-1519225421980-715cb0215aed?auto=format&fit=crop&w=800&q=80" alt="Wedding Canopy Decor" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                <span class="absolute bottom-3 left-3 text-white font-cinzel text-[10px] tracking-wider uppercase">Grand Floral Arch Decor</span>
+              </div>
+
+              <div class="col-span-5 flex flex-col gap-3 h-full">
+                <div class="h-1/2 relative overflow-hidden rounded-2xl border border-gold/30 group">
+                  <img src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=800&q=80" alt="Couple First Dance" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-3 left-3 text-white font-cinzel text-[10px] tracking-wider uppercase">First Dance Ambience</span>
+                </div>
+
+                <div class="h-1/2 relative overflow-hidden rounded-2xl border border-gold/30 group">
+                  <img src="https://images.unsplash.com/photo-1465495976277-4387d4b0b4c6?auto=format&fit=crop&w=800&q=80" alt="Bridal Details" class="w-full h-full object-cover group-hover:scale-105 transition-all duration-500">
+                  <div class="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent"></div>
+                  <span class="absolute bottom-3 left-3 text-white font-cinzel text-[10px] tracking-wider uppercase">Bridal Couture Details</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 08 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 9: PAKET 1 - THE INTIMATE JOURNEY
+           ========================================== -->
+      <div id="page-9" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Collection Tier I</span>
+            <span class="font-serif text-xs italic text-slateText">Akad & Intimate Reception</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b border-gold/20 pb-4">
+              <div>
+                <span class="text-[10px] font-bold tracking-widest text-gold uppercase">Paket Intimate (100 - 150 Pax)</span>
+                <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-charcoal">THE INTIMATE JOURNEY</h2>
+              </div>
+              <div class="mt-2 sm:mt-0 text-left sm:text-right">
+                <span class="text-[10px] text-slateText uppercase block">Investasi Paket</span>
+                <span class="font-serif text-3xl font-bold text-gold-dark">Rp 35.000.000</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div class="md:col-span-5">
+                <img src="https://images.unsplash.com/photo-1523438885200-e635ba2c371e?auto=format&fit=crop&w=800&q=80" alt="Intimate Wedding Setup" class="rounded-2xl border border-gold/30 h-[280px] w-full object-cover shadow-sm">
+              </div>
+
+              <div class="md:col-span-7 space-y-3 text-xs text-slateText">
+                <h3 class="font-cinzel font-bold text-charcoal text-sm uppercase">Rincian Layanan Termasuk:</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Wedding Organizer:</strong> Pendampingan H-30, 4 Personel Tim Profesional D-Day.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Decoration:</strong> Backdrop Akad / Intimate (4 Meter), Fresh Flower Accent, Welcome Board, Mini Gallery.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Documentation:</strong> 1 Lead Photographer & 1 Videographer (6 Jam Kerja), All Unedited Files + 50 Edited Photos.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Attire & Makeup:</strong> 1 Set Busana Akad Pengantin & Makeup Eksklusif + Makeup Ibu Pasangan (2 Orang).</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Sound System:</strong> Standard Acoustic Sound System 2000W.</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 09 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 10: PAKET 2 - THE ROYAL ROMANCE (MOST POPULAR)
+           ========================================== -->
+      <div id="page-10" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative bg-gradient-to-b from-white via-cream/30 to-white">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Collection Tier II</span>
+            <span class="font-serif text-xs italic text-slateText">Modern Ballroom Reception</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b border-gold/30 pb-4">
+              <div>
+                <span class="inline-block px-3 py-0.5 rounded-full gold-gradient-bg text-white text-[9px] font-bold tracking-widest uppercase mb-1">MOST POPULAR COLLECTION</span>
+                <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-charcoal">THE ROYAL ROMANCE</h2>
+                <p class="text-xs text-slateText">Dirancang untuk Resepsi Modern (300 - 500 Pax)</p>
+              </div>
+              <div class="mt-2 sm:mt-0 text-left sm:text-right">
+                <span class="text-[10px] text-slateText uppercase block">Investasi Paket</span>
+                <span class="font-serif text-3xl font-bold text-gold-dark">Rp 75.000.000</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div class="md:col-span-7 space-y-3 text-xs text-slateText">
+                <h3 class="font-cinzel font-bold text-charcoal text-sm uppercase">Rincian Layanan Eksklusif:</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Full Wedding Planning:</strong> Pendampingan komprehensif dari H-6 Bulan, Unlimited Consultation.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>On-the-Day Team:</strong> Dedicated Event Manager + 8 Personel Tim Lapangan Standby.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Decoration:</strong> Grand Pelaminan 8-10M (Full Fresh Flowers), Entrance Gate, Photobooth 3D Custom, Aisle Runner & Lighting Setup.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Documentation:</strong> 2 Photographers + 1 Cinematic Videographer, Highlight Reel 1 Menit (Reels/TikTok Ready), Premium Album Hardcover.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Entertainment:</strong> Professional MC & Acoustic Band (Vocal, Keyboard, Saxophone/Guitar).</span></li>
+                  <li class="flex items-start text-gold-dark font-semibold bg-gold/10 p-2 rounded-lg border border-gold/30"><i class="fa-solid fa-gift text-gold mt-0.5 mr-2"></i><span><strong>Extra Bonus:</strong> Hand Bouquet Import & Special Confetti Effect.</span></li>
+                </ul>
+              </div>
+
+              <div class="md:col-span-5">
+                <img src="https://images.unsplash.com/photo-1544078751-58fee2d8a03b?auto=format&fit=crop&w=800&q=80" alt="Royal Wedding Reception" class="rounded-2xl border-2 border-gold h-[290px] w-full object-cover shadow-md">
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 10 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 11: PAKET 3 - THE IMPERIAL LUXURY
+           ========================================== -->
+      <div id="page-11" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Collection Tier III</span>
+            <span class="font-serif text-xs italic text-slateText">Grand Ballroom & Luxury Celebration</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-6">
+            <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end border-b border-gold/20 pb-4">
+              <div>
+                <span class="text-[10px] font-bold tracking-widest text-gold uppercase">Grand Ballroom (500+ Pax)</span>
+                <h2 class="font-cinzel text-2xl sm:text-3xl font-bold text-charcoal">THE IMPERIAL LUXURY</h2>
+              </div>
+              <div class="mt-2 sm:mt-0 text-left sm:text-right">
+                <span class="text-[10px] text-slateText uppercase block">Investasi Paket</span>
+                <span class="font-serif text-3xl font-bold text-gold-dark">Rp 135.000.000</span>
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
+              <div class="md:col-span-5">
+                <img src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?auto=format&fit=crop&w=800&q=80" alt="Imperial Luxury Ballroom" class="rounded-2xl border border-gold/30 h-[280px] w-full object-cover shadow-sm">
+              </div>
+
+              <div class="md:col-span-7 space-y-3 text-xs text-slateText">
+                <h3 class="font-cinzel font-bold text-charcoal text-sm uppercase">Fasilitas Mewah Termasuk:</h3>
+                <ul class="space-y-2">
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Full Custom Concept:</strong> Concept & Moodboard Design khusus dari H-1 Tahun.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Full Team:</strong> Project Manager + 12 Personel Tim Lapangan & Personal Assistant Pengantin.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Luxury Decoration:</strong> Custom Design Pelaminan 12M+, Tunnel Entrance, Hanging Flower Canopy, Photobooth Interactive.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Documentation & Media:</strong> 3 Photographers, 2 Videographers, Drone Aerial Footage, Fast-Track Highlight Video (D-Day Display).</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Special Effects:</strong> Cold Spark / Sparklers Pyro Effect, Low Fog Machine untuk First Dance.</span></li>
+                  <li class="flex items-start"><i class="fa-solid fa-check text-gold mt-0.5 mr-2"></i><span><strong>Entertainment:</strong> Full Entertainment Band / Chamber Ensemble & Master of Ceremony (MC Hits).</span></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 11 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 12: EXPANDED À LA CARTE & ULTRA ADD-ONS
+           ========================================== -->
+      <div id="page-12" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Customization</span>
+            <span class="font-serif text-xs italic text-slateText">Menu Layanan Ekstra (Add-ons)</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-3 space-y-4">
+            <div class="text-center space-y-1">
+              <h2 class="font-serif text-2xl font-bold text-charcoal">Katalog Layanan Tambahan Lengkap</h2>
+              <p class="text-[11px] text-slateText font-light">Pilihan fitur premium untuk personalisasi pesta pernikahan impian Anda.</p>
+            </div>
+
+            <div class="bg-white rounded-2xl overflow-hidden border border-gold/30 shadow-sm">
+              <div class="overflow-x-auto">
+                <table class="w-full text-left border-collapse">
+                  <thead>
+                    <tr class="bg-cream/80 font-cinzel text-[9px] text-charcoal border-b border-gold/20">
+                      <th class="py-2.5 px-4 uppercase font-bold">Fitur Add-on</th>
+                      <th class="py-2.5 px-4 uppercase font-bold">Rincian Deskripsi</th>
+                      <th class="py-2.5 px-4 uppercase font-bold text-right">Biaya Tambahan</th>
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-cream text-[11px] text-slateText">
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">360 Spinner Video Booth</td><td class="py-2 px-4">Slow-motion 360 video studio + instant QR download</td><td class="py-2 px-4 text-right">Rp 4.500.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">String Quartet Ensemble</td><td class="py-2 px-4">Acoustic string quartet (2 Violin, Viola, Cello)</td><td class="py-2 px-4 text-right">Rp 8.500.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Morning Express Edit Video</td><td class="py-2 px-4">Same Day Edit tayang langsung saat resepsi D-Day</td><td class="py-2 px-4 text-right">Rp 3.500.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Custom Stationery & Calligraphy</td><td class="py-2 px-4">Undangan fisik mewah, Wax Seal, & Place Card kaligrafi</td><td class="py-2 px-4 text-right">Rp 2.500.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">After-Party Bar & Live DJ</td><td class="py-2 px-4">Professional DJ setup + Mocktail/Cocktail bar station</td><td class="py-2 px-4 text-right">Rp 7.500.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Hotel Suite Luxury Upgrade</td><td class="py-2 px-4">2 Malam menginap di Executive Suite 5-Star Hotel</td><td class="py-2 px-4 text-right">Rp 6.000.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Crew Extra WO / Event Staff</td><td class="py-2 px-4">Per personel pendamping koordinasi D-Day</td><td class="py-2 px-4 text-right">Rp 1.500.000 / pax</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Drone Aerial Footage (4K)</td><td class="py-2 px-4">Pengambilan gambar udara resolusi 4K cinematic</td><td class="py-2 px-4 text-right">Rp 2.500.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Upgrade Photobooth 3D Custom</td><td class="py-2 px-4">Backdrop photobooth interaktif & lighting tematik</td><td class="py-2 px-4 text-right">Rp 3.500.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Wedding Content Creator</td><td class="py-2 px-4">Fast-Track Reels / TikTok Video selesei 24 Jam</td><td class="py-2 px-4 text-right">Rp 2.000.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Special Effects Fireworks & Fog</td><td class="py-2 px-4">Cold Spark (4 Spot) + Heavy Low Fog Machine</td><td class="py-2 px-4 text-right">Rp 4.500.000</td></tr>
+                    <tr><td class="py-2 px-4 font-semibold text-charcoal">Live Streaming Multi-Cam 4K</td><td class="py-2 px-4">3 Broadcast Camera Studio + Youtube HD Live Stream</td><td class="py-2 px-4 text-right">Rp 5.000.000</td></tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 12 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 13: TERMS & PAYMENT FLOW
+           ========================================== -->
+      <div id="page-13" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Payment Terms</span>
+            <span class="font-serif text-xs italic text-slateText">Syarat & Alur Pembayaran</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-4 space-y-6">
+            <div class="text-center max-w-lg mx-auto space-y-2">
+              <h2 class="font-serif text-2xl font-bold text-charcoal">Alur Transaksi & Pembayaran</h2>
+              <p class="text-xs text-slateText font-light">Prosedur pembayaran yang aman dan fleksibel untuk kenyamanan Anda.</p>
+              <div class="w-12 h-0.5 bg-gold mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div class="bg-white p-5 rounded-2xl border border-gold/30 text-center space-y-2 shadow-sm">
+                <div class="w-10 h-10 mx-auto rounded-full gold-gradient-bg text-white font-cinzel font-bold text-sm flex items-center justify-center">01</div>
+                <span class="text-[10px] font-bold text-gold uppercase block">DP 1 (Booking Date)</span>
+                <div class="font-serif text-2xl font-bold text-charcoal">20%</div>
+                <p class="text-[11px] text-slateText leading-relaxed">Untuk mengunci & mengamankan tanggal acara pada kalender kami.</p>
+              </div>
+
+              <div class="bg-white p-5 rounded-2xl border border-gold/30 text-center space-y-2 shadow-sm">
+                <div class="w-10 h-10 mx-auto rounded-full gold-gradient-bg text-white font-cinzel font-bold text-sm flex items-center justify-center">02</div>
+                <span class="text-[10px] font-bold text-gold uppercase block">Termin 2 (H-60)</span>
+                <div class="font-serif text-2xl font-bold text-charcoal">50%</div>
+                <p class="text-[11px] text-slateText leading-relaxed">Konfirmasi final seluruh vendor, dekorasi, & teknis acara.</p>
+              </div>
+
+              <div class="bg-white p-5 rounded-2xl border border-gold/30 text-center space-y-2 shadow-sm">
+                <div class="w-10 h-10 mx-auto rounded-full gold-gradient-bg text-white font-cinzel font-bold text-sm flex items-center justify-center">03</div>
+                <span class="text-[10px] font-bold text-gold uppercase block">Pelunasan (H-14)</span>
+                <div class="font-serif text-2xl font-bold text-charcoal">30%</div>
+                <p class="text-[11px] text-slateText leading-relaxed">Penyelesaian administrasi sebelum D-Day eksekusi acara.</p>
+              </div>
+            </div>
+
+            <div class="bg-cream p-4 rounded-xl border border-gold/20 text-center text-xs text-slateText italic">
+              <strong>Catatan Ketentuan:</strong> Harga tertera berlaku untuk area Jabodetabek & Jawa Barat. Penyelenggaraan acara luar kota / luar pulau akan dikenakan penyesuaian biaya akomodasi & transportasi tim.
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gold/20 flex justify-between items-center text-[10px] font-cinzel text-slateText">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 13 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 14: INTERACTIVE BUDGET CALCULATOR
+           ========================================== -->
+      <div id="page-14" class="page-view">
+        <div class="magazine-page rounded-2xl p-8 sm:p-12 min-h-[790px] flex flex-col justify-between relative bg-charcoal text-white">
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none opacity-40"></div>
+
+          <div class="relative z-10 flex justify-between items-center pb-4 border-b border-gold/30">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Investment Calculator</span>
+            <span class="font-serif text-xs italic text-gray-300">Simulasi Anggaran Impian</span>
+          </div>
+
+          <div class="relative z-10 my-auto py-3 space-y-5">
+            <div class="text-center space-y-1">
+              <h2 class="font-serif text-2xl font-bold text-white">Hitung Simulasi Investasi Anda</h2>
+              <p class="text-xs text-gray-300 font-light">Pilih paket utama dan add-ons untuk melihat kalkulasi instan.</p>
+            </div>
+
+            <div class="space-y-4 max-w-xl mx-auto text-xs">
+              <div>
+                <label class="block font-cinzel text-gold text-[10px] uppercase font-bold mb-1">1. Pilih Koleksi Paket Utama:</label>
+                <select id="calc-pkg" onchange="runCalculator()" class="w-full bg-gray-900 border border-gold/40 rounded-xl p-3 text-white focus:outline-none focus:border-gold">
+                  <option value="35000000|THE INTIMATE JOURNEY">THE INTIMATE JOURNEY (Rp 35.000.000)</option>
+                  <option value="75000000|THE ROYAL ROMANCE" selected>THE ROYAL ROMANCE (Rp 75.000.000)</option>
+                  <option value="135000000|THE IMPERIAL LUXURY">THE IMPERIAL LUXURY (Rp 135.000.000)</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block font-cinzel text-gold text-[10px] uppercase font-bold mb-1">2. Pilihan Add-ons Ultra Opsional:</label>
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 text-[10px]">
+                  <label class="flex items-center space-x-2 bg-gray-900/80 p-2 rounded-lg border border-gray-700 cursor-pointer hover:border-gold/40">
+                    <input type="checkbox" value="4500000" data-name="360 Spinner Video Booth" onchange="runCalculator()" class="calc-addon rounded text-gold focus:ring-gold bg-gray-800 border-gray-600">
+                    <span>360 Spinner Booth (+4.5jt)</span>
+                  </label>
+                  <label class="flex items-center space-x-2 bg-gray-900/80 p-2 rounded-lg border border-gray-700 cursor-pointer hover:border-gold/40">
+                    <input type="checkbox" value="8500000" data-name="String Quartet Ensemble" onchange="runCalculator()" class="calc-addon rounded text-gold focus:ring-gold bg-gray-800 border-gray-600">
+                    <span>String Quartet (+8.5jt)</span>
+                  </label>
+                  <label class="flex items-center space-x-2 bg-gray-900/80 p-2 rounded-lg border border-gray-700 cursor-pointer hover:border-gold/40">
+                    <input type="checkbox" value="3500000" data-name="Morning Express Edit Video" onchange="runCalculator()" class="calc-addon rounded text-gold focus:ring-gold bg-gray-800 border-gray-600">
+                    <span>Morning Express Video (+3.5jt)</span>
+                  </label>
+                  <label class="flex items-center space-x-2 bg-gray-900/80 p-2 rounded-lg border border-gray-700 cursor-pointer hover:border-gold/40">
+                    <input type="checkbox" value="7500000" data-name="After-Party Bar & Live DJ" onchange="runCalculator()" class="calc-addon rounded text-gold focus:ring-gold bg-gray-800 border-gray-600">
+                    <span>After-Party DJ & Bar (+7.5jt)</span>
+                  </label>
+                  <label class="flex items-center space-x-2 bg-gray-900/80 p-2 rounded-lg border border-gray-700 cursor-pointer hover:border-gold/40">
+                    <input type="checkbox" value="4500000" data-name="Special Effects Sparkle+Fog" onchange="runCalculator()" class="calc-addon rounded text-gold focus:ring-gold bg-gray-800 border-gray-600">
+                    <span>Sparkles & Low Fog (+4.5jt)</span>
+                  </label>
+                  <label class="flex items-center space-x-2 bg-gray-900/80 p-2 rounded-lg border border-gray-700 cursor-pointer hover:border-gold/40">
+                    <input type="checkbox" value="2000000" data-name="Wedding Content Creator" onchange="runCalculator()" class="calc-addon rounded text-gold focus:ring-gold bg-gray-800 border-gray-600">
+                    <span>Content Creator (+2jt)</span>
+                  </label>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-gray-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <div>
+                  <span class="text-[10px] text-gray-400 block uppercase">Estimasi Total Investment:</span>
+                  <div id="calc-total" class="font-serif text-3xl font-bold text-gold">Rp 75.000.000</div>
+                </div>
+                <a id="calc-wa-link" href="#" target="_blank" class="px-6 py-3 rounded-full gold-gradient-bg text-white font-semibold text-xs tracking-wider uppercase hover:brightness-105 transition-all shadow-lg flex items-center">
+                  <i class="fa-brands fa-whatsapp text-base mr-2"></i> Kirim Ke WhatsApp
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="relative z-10 pt-4 border-t border-gray-800 flex justify-between items-center text-[10px] font-cinzel text-gray-400">
+            <span>Mentari Wedding Guide</span>
+            <span class="font-bold text-gold">PAGE 14 / 15</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- ==========================================
+           PAGE 15: BACK COVER & STUDIO CONTACT
+           ========================================== -->
+      <div id="page-15" class="page-view">
+        <div class="magazine-page rounded-2xl min-h-[790px] flex flex-col justify-between text-white relative">
+          <img src="https://images.unsplash.com/photo-1522673607200-164d1b6ce486?auto=format&fit=crop&w=1200&q=80" alt="Back Cover Couple" class="absolute inset-0 w-full h-full object-cover">
+          <div class="absolute inset-0 bg-gradient-to-t from-black via-black/80 to-black/50"></div>
+
+          <div class="page-inner-border absolute inset-4 sm:inset-6 rounded-xl pointer-events-none z-20"></div>
+
+          <div class="relative z-10 p-8 sm:p-12 text-center border-b border-white/20">
+            <span class="font-cinzel text-xs font-bold tracking-widest text-gold uppercase">Closing Page</span>
+          </div>
+
+          <div class="relative z-10 p-8 sm:p-12 text-center my-auto space-y-6 max-w-lg mx-auto">
+            <div class="space-y-2">
+              <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white">Mulai Perencanaan Pernikahan Impian Anda</h2>
+              <div class="w-16 h-0.5 bg-gold mx-auto"></div>
+              <p class="text-xs text-gray-300 leading-relaxed font-light">
+                Konsultasikan konsep pernikahan Anda bersama Dedicated Event Manager dari Mentari Wedding.
+              </p>
+            </div>
+
+            <div>
+              <a href="https://wa.me/6287777099824?text=Halo%20Mentari%20Wedding%20Organizer,%20saya%20telah%20membaca%20Lookbook%20Pricelist%2015-Halaman%20dan%20ingin%20konsultasi." target="_blank" class="inline-flex items-center px-8 py-3.5 rounded-full gold-gradient-bg text-white font-semibold text-xs tracking-widest uppercase hover:brightness-105 transition-all shadow-2xl">
+                <i class="fa-brands fa-whatsapp text-lg mr-2"></i> Konsultasi Gratis via WhatsApp
+              </a>
+            </div>
+
+            <div class="bg-black/60 backdrop-blur-md p-6 rounded-2xl border border-gold/30 text-xs text-gray-300 space-y-2 text-left">
+              <div class="flex items-center space-x-3"><i class="fa-solid fa-phone text-gold w-4"></i><span><strong>WhatsApp Studio:</strong> +62 877-7709-9824 / +62 812-3456-7890</span></div>
+              <div class="flex items-center space-x-3"><i class="fa-brands fa-instagram text-gold w-4"></i><span><strong>Instagram:</strong> @mentariwedding.id</span></div>
+              <div class="flex items-center space-x-3"><i class="fa-solid fa-globe text-gold w-4"></i><span><strong>Website:</strong> www.mentariwedding.biz.id</span></div>
+              <div class="flex items-start space-x-3"><i class="fa-solid fa-location-dot text-gold w-4 mt-0.5"></i><span><strong>Studio Galeri:</strong> Kp. Kebon Pala II & Wijaya Executive Park, Jakarta & Sukabumi.</span></div>
+            </div>
+          </div>
+
+          <div class="relative z-10 p-8 sm:p-12 text-center border-t border-white/20 text-xs">
+            <p class="font-cinzel font-bold text-white tracking-widest">MENTARI WEDDING ORGANIZER</p>
+            <p class="text-[10px] text-gray-400 mt-1">© 2026 MENTARI WEDDING ORGANIZER. All Rights Reserved.</p>
+            <p class="text-[9px] font-cinzel text-gold font-bold mt-2">PAGE 15 / 15 (BACK COVER)</p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- BOTTOM FOOTER THUMBNAIL NAV -->
+  <footer id="magazine-footer" class="sticky bottom-0 z-40 bg-charcoal/95 backdrop-blur-md border-t border-gold/30 text-white py-3 px-4 shadow-2xl">
+    <div class="max-w-xl mx-auto flex items-center justify-between text-xs">
+      <button onclick="prevPage()" class="px-4 py-1.5 rounded-full border border-gold/40 text-gold hover:bg-gold hover:text-white transition-all">
+        <i class="fa-solid fa-arrow-left mr-1"></i> Prev
+      </button>
+
+      <span class="font-cinzel text-[11px] tracking-widest text-gold font-bold">
+        HALAMAN <span id="footer-page-num">01</span> DARI 15
+      </span>
+
+      <button onclick="nextPage()" class="px-4 py-1.5 rounded-full gold-gradient-bg text-white font-medium hover:brightness-105 transition-all">
+        Next <i class="fa-solid fa-arrow-right ml-1"></i>
+      </button>
+    </div>
+  </footer>
+
+  <!-- VANILLA JAVASCRIPT READER LOGIC -->
+  <script>
+    let currentPage = 1;
+    const totalPages = 15;
+
+    function renderPage() {
+      for (let i = 1; i <= totalPages; i++) {
+        const page = document.getElementById(`page-${i}`);
+        if (i === currentPage) {
+          page.classList.add('active');
+        } else {
+          page.classList.remove('active');
+        }
+      }
+
+      const formattedNum = currentPage < 10 ? `0${currentPage}` : `${currentPage}`;
+      document.getElementById('current-page-num').innerText = formattedNum;
+      document.getElementById('footer-page-num').innerText = formattedNum;
+
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    function nextPage() {
+      if (currentPage < totalPages) {
+        currentPage++;
+        renderPage();
+      }
+    }
+
+    function prevPage() {
+      if (currentPage > 1) {
+        currentPage--;
+        renderPage();
+      }
+    }
+
+    function goToPage(n) {
+      currentPage = n;
+      renderPage();
+    }
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowRight') nextPage();
+      if (e.key === 'ArrowLeft') prevPage();
+    });
+
+    function formatIDR(num) {
+      return new Intl.NumberFormat('id-ID', { style: 'currency', currency: 'IDR', maximumFractionDigits: 0 }).format(num);
+    }
+
+    function runCalculator() {
+      const pkgSelect = document.getElementById('calc-pkg');
+      const [priceVal, pkgName] = pkgSelect.value.split('|');
+      let total = parseInt(priceVal);
+      let selectedAddons = [];
+
+      document.querySelectorAll('.calc-addon:checked').forEach(cb => {
+        total += parseInt(cb.value);
+        selectedAddons.push(cb.getAttribute('data-name'));
+      });
+
+      document.getElementById('calc-total').innerText = formatIDR(total);
+
+      let msg = `Halo Mentari Wedding Organizer, saya mencoba simulasi anggaran di Lookbook Halaman 14:%0A%0A` +
+                `• *Paket Utama:* ${pkgName} (${formatIDR(parseInt(priceVal))})%0A`;
+      if (selectedAddons.length > 0) {
+        msg += `• *Add-ons:* ${selectedAddons.join(', ')}%0A`;
+      }
+      msg += `%0A*Estimasi Total:* ${formatIDR(total)}%0A%0AMohon jadwal konsultasi lebih lanjut. Terima kasih!`;
+
+      document.getElementById('calc-wa-link').href = `https://wa.me/6287777099824?text=${msg}`;
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      runCalculator();
+    });
+  </script>
+
+</body>
+</html>
