@@ -35,6 +35,8 @@ type VenueItem = {
   tag: string;
   title: string;
   desc: string;
+  coordinates?: string;
+  mapUrl?: string;
 };
 
 type GalleryItem = { image: string; caption: string };
@@ -78,6 +80,8 @@ export function MagazineReader() {
               desc:
                 v.description ||
                 DEFAULT_VENUES[i % DEFAULT_VENUES.length].desc,
+              coordinates: DEFAULT_VENUES[i % DEFAULT_VENUES.length].coordinates,
+              mapUrl: DEFAULT_VENUES[i % DEFAULT_VENUES.length].mapUrl,
             })),
           );
         }

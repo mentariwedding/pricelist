@@ -76,24 +76,32 @@ export const DEFAULT_VENUES = [
     tag: "Grand Reception Hall",
     title: "Gedung Anton Soedjarwo",
     desc: "Venue resepsi dengan ruang acara luas untuk rangkaian perayaan yang terarah.",
+    coordinates: "-6.9102246059558405, 106.92308255633806",
+    mapUrl: "https://www.google.com/maps?q=-6.9102246059558405,106.92308255633806",
   },
   {
     image: "/images/venue-daarulmatiincibadak.jpg",
     tag: "Akad & Ceremony Venue",
     title: "Daarul Matiin Cibadak",
     desc: "Pilihan venue dengan suasana khidmat untuk akad dan rangkaian seremoni keluarga.",
+    coordinates: "-6.8938837626021705, 106.7847085646046",
+    mapUrl: "https://www.google.com/maps?q=-6.8938837626021705,106.7847085646046",
   },
   {
     image: "/images/venue-gedung-bk3d.jpg",
     tag: "Reception Hall",
     title: "Gedung BK3D",
     desc: "Venue resepsi yang dapat disesuaikan untuk kebutuhan konsep dan skala perayaan Anda.",
+    coordinates: "-6.893411644490495, 106.7835674777787",
+    mapUrl: "https://www.google.com/maps?q=-6.893411644490495,106.7835674777787",
   },
   {
     image: "/images/venue-pontis-kopi.jpg",
     tag: "Garden & Café Venue",
     title: "Pontis Kopi",
     desc: "Pilihan venue dengan atmosfer hangat untuk intimate celebration dan gathering keluarga.",
+    coordinates: "-6.8856897898415514, 106.81196784284437",
+    mapUrl: "https://www.google.com/maps?q=-6.8856897898415514,106.81196784284437",
   },
 ] as const;
 

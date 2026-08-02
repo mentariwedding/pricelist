@@ -1,11 +1,11 @@
 "use client";
 
 import Image from "next/image";
-import { MapPin } from "lucide-react";
+import { MapPin, Navigation } from "lucide-react";
 import { PageHeader, PageShell } from "@/components/PageShell";
 import { DEFAULT_VENUES } from "@/data/lookbook";
 
-type VenueItem = { image: string; tag: string; title: string; desc: string };
+type VenueItem = { image: string; tag: string; title: string; desc: string; coordinates?: string; mapUrl?: string };
 
 export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
   const list = venues?.length ? venues : [...DEFAULT_VENUES];
@@ -34,6 +34,15 @@ export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
                 <h3 className="font-serif text-lg font-semibold text-charcoal">{venue.title}</h3>
                 <p className="font-cinzel text-[7px] font-bold tracking-[0.14em] text-gold-dark uppercase">Venue partner · curated by Mentari</p>
                 <p className="text-[10px] leading-relaxed text-slate-text">{venue.desc}</p>
+                {venue.coordinates && (
+                  <div className="mt-3 border-t border-gold/15 pt-2">
+                    <p className="font-cinzel text-[7px] font-bold tracking-[0.13em] text-gold-dark uppercase">Venue coordinates</p>
+                    <div className="mt-1 flex items-center justify-between gap-2">
+                      <span className="truncate font-mono text-[8px] text-slate-text">{venue.coordinates}</span>
+                      {venue.mapUrl && <a href={venue.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-1 text-[8px] font-semibold text-gold-dark hover:text-charcoal"><Navigation className="h-3 w-3" /> Maps</a>}
+                    </div>
+                  </div>
+                )}
               </div>
             </article>
           ))}
