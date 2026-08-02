@@ -32,7 +32,7 @@ export function PageShell({
         <div
           className={`page-footer-bar ${
             footerDark
-              ? "border-gray-800 text-gray-400"
+              ? "border-gray-700 text-gray-300"
               : "border-gold/20 text-slate-text"
           }`}
         >
@@ -62,7 +62,7 @@ export function PageHeader({
       </span>
       <span
         className={`font-serif text-[10px] sm:text-xs italic shrink-0 max-w-[48%] sm:max-w-[55%] truncate text-right ${
-          dark ? "text-gray-300" : "text-slate-text"
+          dark ? "text-gray-100" : "text-slate-text"
         }`}
       >
         {right}

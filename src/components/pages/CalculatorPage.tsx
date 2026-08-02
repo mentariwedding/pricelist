@@ -112,7 +112,7 @@ export function CalculatorPage() {
 
           <div className="flex flex-col items-center gap-4 border-t border-gold/20 pt-4 sm:flex-row sm:justify-between">
             <div>
-              <span className="text-[10px] text-gray-400 block uppercase">
+              <span className="text-[10px] text-gray-200 block uppercase">
                 Estimasi Investasi Mulai Dari:
               </span>
               <div className="font-serif text-3xl font-bold text-gold">
