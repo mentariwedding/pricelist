@@ -34,7 +34,7 @@ export function TocPage({ onNavigate }: { onNavigate?: (page: number) => void })
           <div className="relative z-10 flex min-h-56 flex-col justify-between">
             <span className="font-cinzel text-[8px] font-bold tracking-[0.2em] text-gold uppercase">A note from Mentari</span>
             <blockquote className="font-serif text-xl italic leading-relaxed text-white">“Every couple has a story. Our role is to make every chapter feel effortless.”</blockquote>
-            <div className="border-t border-gold/30 pt-3 text-[10px] text-gray-300">MENTARI WEDDING MANAGEMENT<br /><span className="font-cinzel text-[8px] tracking-[0.16em] text-gold">JAKARTA · SUKABUMI</span></div>
+            <div className="border-t border-gold/30 pt-3 text-[10px] text-gray-300">MENTARI WEDDING MANAGEMENT<br /><span className="font-cinzel text-[8px] tracking-[0.16em] text-gold">CIBADAK · SUKABUMI</span></div>
           </div>
         </aside>
       </div>

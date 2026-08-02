@@ -57,7 +57,7 @@ export function CoverPage() {
 
         <div className="page-footer-bar border-white/20 text-[10px] sm:text-xs">
           <span className="text-gray-300 font-light text-left leading-snug">
-            Jakarta & Sukabumi Executive Edition
+            Cibadak & Sukabumi Executive Edition
           </span>
           <span className="font-cinzel text-gold font-bold tracking-widest shrink-0">
             PAGE {padPage(1)} / {padPage(TOTAL_PAGES)}
