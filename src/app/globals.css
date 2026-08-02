@@ -17,7 +17,7 @@
 }
 
 :root {
-  --pl-dock-space: calc(4.75rem + env(safe-area-inset-bottom, 0px));
+  --pl-dock-space: calc(6rem + env(safe-area-inset-bottom, 0px));
   --pl-page-min: calc(100svh - var(--pl-dock-space));
 }
 
@@ -84,6 +84,11 @@ a:focus-visible,
 }
 
 /* Page 15: a solid, intentional charcoal surface instead of a washed paper overlay. */
+.editorial-warm {
+  background-color: #f3ede2;
+  background-image: radial-gradient(circle at 82% 12%, rgba(197, 160, 89, 0.11), transparent 28%), linear-gradient(135deg, rgba(255, 255, 255, 0.42), transparent 50%);
+}
+
 .investment-page {
   background-color: #171512;
   background-image:

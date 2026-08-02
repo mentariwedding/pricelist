@@ -25,14 +25,14 @@ const TYPE_TREATMENTS = [
 
 export function VendorsPage() {
   return (
-    <PageShell page={7}>
-      <PageHeader left="Preferred Partners" right="A Mentari Curated Directory" />
+    <PageShell page={7} className="bg-charcoal text-white" footerDark>
+      <PageHeader left="Preferred Partners" right="A Mentari Curated Directory" dark />
 
       <div className="page-body flex flex-1 flex-col justify-center gap-5">
         <div className="text-center">
-          <p className="font-cinzel text-[9px] font-bold tracking-[0.22em] text-gold-dark uppercase">The little black book</p>
-          <h2 className="mt-1 font-serif text-2xl font-bold text-charcoal sm:text-3xl">Nama-nama yang kami percaya.</h2>
-          <p className="mx-auto mt-2 max-w-md text-[10px] leading-relaxed text-slate-text">Jaringan kolaborator pilihan untuk mewujudkan detail yang terasa indah, rapi, dan personal.</p>
+          <p className="font-cinzel text-[9px] font-bold tracking-[0.22em] text-gold uppercase">The little black book</p>
+          <h2 className="mt-1 font-serif text-2xl font-bold text-white sm:text-3xl">Nama-nama yang kami percaya.</h2>
+          <p className="mx-auto mt-2 max-w-md text-[10px] leading-relaxed text-gray-300">Jaringan kolaborator pilihan untuk mewujudkan detail yang terasa indah, rapi, dan personal.</p>
         </div>
 
         <div className="relative overflow-hidden rounded-2xl border border-gold/25 bg-[#f5f0e7] px-4 py-6 sm:px-8 sm:py-8">
@@ -51,7 +51,7 @@ export function VendorsPage() {
           </div>
         </div>
 
-        <p className="text-center font-serif text-[11px] italic text-slate-text">and the many hands behind a beautifully seamless day.</p>
+        <p className="text-center font-serif text-[11px] italic text-gray-400">and the many hands behind a beautifully seamless day.</p>
       </div>
     </PageShell>
   );

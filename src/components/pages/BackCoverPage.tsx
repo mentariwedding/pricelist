@@ -13,7 +13,7 @@ const CONTACT_ITEMS = [
   { icon: MapPin, label: "Studio Galeri", value: CONTACT.address },
 ];
 
-export function BackCoverPage() {
+export function BackCoverPage({ onOpenConsultation }: { onOpenConsultation?: () => void }) {
   return (
     <PageShell page={20} hideDefaultFooter clipContent className="text-white !bg-charcoal">
       <Image src={IMAGES.backCover} alt="Mentari Wedding closing scene" fill className="object-cover" sizes="(max-width: 896px) 100vw, 896px" />
@@ -39,9 +39,9 @@ export function BackCoverPage() {
             <p className="max-w-md text-xs leading-relaxed text-gray-300">Mulai dari satu percakapan sederhana. Ceritakan hari impian Anda, dan biarkan Mentari membantu menyusunnya dengan tenang dan penuh perhatian.</p>
           </div>
           <div className="flex flex-wrap items-center gap-3">
-            <a href={waLink("Halo Mentari Wedding Organizer, saya telah membaca Lookbook Pricelist dan ingin memulai konsultasi pribadi.")} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 rounded-full gold-gradient-bg px-6 py-3 text-xs font-semibold tracking-[0.08em] text-white shadow-[0_16px_35px_-15px_rgba(197,160,89,.8)] transition hover:brightness-110">
+            <button type="button" onClick={onOpenConsultation} className="inline-flex items-center gap-2 rounded-full gold-gradient-bg px-6 py-3 text-xs font-semibold tracking-[0.08em] text-white shadow-[0_16px_35px_-15px_rgba(197,160,89,.8)] transition hover:brightness-110">
               <MessageCircle className="h-4 w-4" /> MULAI KONSULTASI PRIBADI
-            </a>
+            </button>
             <a href={waLink("Halo Mentari Wedding Organizer, saya ingin memulai konsultasi pribadi.")} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 rounded-full border border-gold/35 bg-black/25 py-1.5 pl-1.5 pr-3 text-[8px] font-cinzel tracking-[0.1em] text-gold-light uppercase backdrop-blur-sm" aria-label="Scan QR untuk menghubungi Mentari via WhatsApp">
               <span className="relative h-8 w-8 overflow-hidden rounded-sm bg-white"><Image src="/images/whatsapp-qr.png" alt="QR WhatsApp Mentari Wedding" fill sizes="32px" /></span> Scan to connect
             </a>
