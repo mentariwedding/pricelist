@@ -27,7 +27,7 @@ const jakarta = Plus_Jakarta_Sans({
 export const metadata: Metadata = {
   title: "MENTARI WEDDING ORGANIZER — Ultimate Investment Lookbook 2026/2027",
   description:
-    "Official pricelist & wedding investment guide Mentari Wedding Organizer. Collection 2026/2027 — Jakarta & Sukabumi.",
+    "Official pricelist & wedding investment guide Mentari Wedding Organizer. Collection 2026/2027 — Cibadak & Sukabumi.",
   openGraph: {
     title: "MENTARI WEDDING ORGANIZER — Wedding Investment Lookbook 2026/2027",
     description: "Mulai rencanakan perayaan Anda bersama Mentari Wedding Organizer.",

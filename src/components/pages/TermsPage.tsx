@@ -5,7 +5,7 @@ import { PageHeader, PageShell } from "@/components/PageShell";
 import { formatIDR } from "@/lib/format";
 
 const CREW_TERMS = [
-  "Venue di luar Kota Sukabumi dikenakan biaya akomodasi tim.",
+  "Venue di luar Cibadak dikenakan biaya akomodasi tim.",
   `Cianjur, Palabuhanratu, dan Pejampangan: biaya transportasi ${formatIDR(2_000_000)} ditambah penginapan.`,
   `Bogor, Bandung, dan Jakarta: biaya transportasi ${formatIDR(5_000_000)} ditambah penginapan.`,
   `Akad dan resepsi pada tanggal berbeda dikenakan charge ${formatIDR(2_500_000)}.`,

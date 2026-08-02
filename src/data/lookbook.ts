@@ -70,7 +70,57 @@ export const AESTHETICS = [
   },
 ] as const;
 
-export const DEFAULT_VENUES = [
+export const COLOR_EDIT_2026 = [
+  {
+    id: "mocha",
+    name: "Mocha & Champagne",
+    season: "2026 quiet luxury edit",
+    colors: ["#5a3d2e", "#a8794f", "#f3e7d3", "#d4af37"],
+    bestFor: "Ballroom, candlelit dinner, dan traditional luxury celebration.",
+    image: "/images/LUXURY3.jpg",
+  },
+  {
+    id: "butter-sage",
+    name: "Butter Yellow & Sage",
+    season: "Spring garden edit",
+    colors: ["#f2d682", "#b7c5a5", "#fbf7ee", "#8c7448"],
+    bestFor: "Garden wedding, lamaran outdoor, dan celebration yang fresh.",
+    image: "/images/ROMANCE1.jpg",
+  },
+  {
+    id: "blue-silver",
+    name: "Dusty Blue & Silver",
+    season: "Modern romance edit",
+    colors: ["#8ba7be", "#d6dce0", "#f8f7f3", "#546774"],
+    bestFor: "Modern reception, clean editorial décor, dan glasshouse setting.",
+    image: "/images/JOURNEY1.jpg",
+  },
+  {
+    id: "plum",
+    name: "Deep Plum & Rose Gold",
+    season: "Evening statement edit",
+    colors: ["#4b2838", "#8c4e63", "#e7c9be", "#b88866"],
+    bestFor: "Night party, luxury reception, dan dramatic floral styling.",
+    image: "/images/LUXURY6.jpg",
+  },
+] as const;
+
+export const SEASONAL_EDITION = {
+  label: "Curated 2026 Edition",
+  title: "Garden, Adat & Modern Romance",
+  note: "Palet dan visual pilihan untuk perayaan yang terasa personal di musim ini.",
+} as const;
+
+export type Venue = {
+  image: string;
+  tag: string;
+  title: string;
+  desc: string;
+  coordinates?: string;
+  mapUrl?: string;
+};
+
+export const DEFAULT_VENUES: readonly Venue[] = [
   {
     image: "/images/venue-GedungAntonSoedjarwo.jpg",
     tag: "Grand Reception Hall",
@@ -102,6 +152,22 @@ export const DEFAULT_VENUES = [
     desc: "Pilihan venue dengan atmosfer hangat untuk intimate celebration dan gathering keluarga.",
     coordinates: "-6.8856897898415514, 106.81196784284437",
     mapUrl: "https://www.google.com/maps?q=-6.8856897898415514,106.81196784284437",
+  },
+  {
+    image: "/images/JOURNEY1.jpg",
+    tag: "Outdoor Wedding Venue",
+    title: "YSR Himalaya",
+    desc: "Pilihan venue dengan suasana outdoor yang menyatu dengan dekorasi dan rangkaian seremoni.",
+    coordinates: "-6.84036028784743, 106.82876886468237",
+    mapUrl: "https://www.google.com/maps?q=-6.84036028784743,106.82876886468237",
+  },
+  {
+    image: "/images/ROMANCE1.jpg",
+    tag: "Garden Wedding Venue",
+    title: "Bale Kinasih",
+    desc: "Pilihan venue garden untuk perayaan intimate maupun resepsi dengan suasana hangat.",
+    coordinates: "-6.885833938460383, 106.94243204339705",
+    mapUrl: "https://www.google.com/maps?q=-6.885833938460383,106.94243204339705",
   },
 ] as const;
 
@@ -743,5 +809,5 @@ export const IMAGES = {
   cover: "/images/pavilion.JPG",
   portrait: "/images/logo.jpg",
   brandStory: "/images/signature.JPG",
-  backCover: "/images/harmoni.jpg",
+  backCover: "/images/venue-pontis-kopi.jpg",
 } as const;

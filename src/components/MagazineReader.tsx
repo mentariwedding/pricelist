@@ -28,6 +28,7 @@ import { CalculatorPage } from "@/components/pages/CalculatorPage";
 import { BackCoverPage } from "@/components/pages/BackCoverPage";
 import { DEFAULT_VENUES, GALLERY, TOC_ITEMS, TOTAL_PAGES } from "@/data/lookbook";
 import { ConsultationModal } from "@/components/ConsultationModal";
+import { AmbientMusicProvider } from "@/components/AmbientMusic";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 type VenueItem = {
@@ -60,7 +61,7 @@ export function MagazineReader() {
           supabase
             .from("venues")
             .select("name, description, image_url, category")
-            .limit(4),
+            .limit(6),
           supabase
             .from("portfolio_gallery")
             .select("title, image_url")
@@ -166,7 +167,8 @@ export function MagazineReader() {
   ];
 
   return (
-    <div className="antialiased bg-charcoal md:bg-[#0A0A0A] pb-[var(--pl-dock-space)] md:pb-0 md:min-h-screen md:flex md:flex-col">
+    <AmbientMusicProvider>
+      <div className="antialiased bg-charcoal md:bg-[#0A0A0A] pb-[var(--pl-dock-space)] md:pb-0 md:min-h-screen md:flex md:flex-col">
       <MagazineToolbar
         currentPage={currentPage}
         onPrev={goPrev}
@@ -241,6 +243,7 @@ export function MagazineReader() {
         )}
       </AnimatePresence>
       <ConsultationModal open={consultationIntent !== null} intent={consultationIntent ?? "consultation"} onClose={() => setConsultationIntent(null)} />
-    </div>
+      </div>
+    </AmbientMusicProvider>
   );
 }

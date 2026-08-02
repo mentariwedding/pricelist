@@ -8,7 +8,17 @@ import { DEFAULT_VENUES } from "@/data/lookbook";
 type VenueItem = { image: string; tag: string; title: string; desc: string; coordinates?: string; mapUrl?: string };
 
 export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
-  const list = venues?.length ? venues : [...DEFAULT_VENUES];
+  const remoteVenues = venues ?? [];
+  // The six Mentari-curated venues are always visible. A matching Supabase record
+  // may enrich its title/description/image, but can never remove a venue card.
+  const list = DEFAULT_VENUES.map((fallback) => {
+    const remote = remoteVenues.find(
+      (venue) => venue.title.trim().toLowerCase() === fallback.title.trim().toLowerCase(),
+    );
+    return remote
+      ? { ...fallback, ...remote, coordinates: fallback.coordinates, mapUrl: fallback.mapUrl }
+      : fallback;
+  });
 
   return (
     <PageShell page={6}>
@@ -19,14 +29,14 @@ export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
             <p className="font-cinzel text-[9px] font-bold tracking-[0.2em] text-gold-dark uppercase">Venue edit</p>
             <h2 className="mt-1 font-serif text-2xl font-bold text-charcoal sm:text-3xl">Ruang yang memberi cerita pada perayaan.</h2>
           </div>
-          <p className="max-w-xs text-[10px] leading-relaxed text-slate-text sm:text-right">Ballroom, garden, dan pavilion pilihan untuk konsep yang terasa tepat.</p>
+          <p className="max-w-xs text-[10px] leading-relaxed text-slate-text sm:text-right"><span className="font-cinzel text-[8px] font-bold tracking-[0.12em] text-gold-dark uppercase">6 curated venues</span><br />Ballroom, garden, dan pavilion pilihan untuk konsep yang terasa tepat.</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {list.slice(0, 4).map((venue, index) => (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {list.slice(0, 6).map((venue, index) => (
             <article key={venue.title} className="group overflow-hidden rounded-2xl border border-gold/30 bg-white shadow-sm">
               <div className="relative h-44 overflow-hidden">
-                <Image src={venue.image} alt={venue.title} fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw" />
+                <Image src={venue.image} alt={venue.title} fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
                 <span className="absolute bottom-3 left-3 font-cinzel text-[8px] font-bold tracking-[0.16em] text-gold-light uppercase">0{index + 1} · {venue.tag}</span>
               </div>

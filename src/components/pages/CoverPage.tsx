@@ -1,12 +1,15 @@
 "use client";
 
 import Image from "next/image";
+import { motion, useReducedMotion } from "framer-motion";
 import { Sun } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
-import { IMAGES, TOTAL_PAGES } from "@/data/lookbook";
+import { IMAGES, SEASONAL_EDITION, TOTAL_PAGES } from "@/data/lookbook";
 import { padPage } from "@/lib/format";
 
 export function CoverPage() {
+  const reduceMotion = useReducedMotion();
+
   return (
     <PageShell
       page={1}
@@ -14,20 +17,32 @@ export function CoverPage() {
       clipContent
       className="text-white !bg-charcoal"
     >
-      <Image
-        src={IMAGES.cover}
-        alt="Mentari Wedding Cover"
-        fill
-        priority
-        className="object-cover"
-        sizes="(max-width: 896px) 100vw, 896px"
+      <motion.div
+        className="absolute -inset-6"
+        initial={false}
+        animate={reduceMotion ? undefined : { scale: [1.04, 1.13, 1.07], x: [0, -10, 5], y: [0, -5, 2] }}
+        transition={reduceMotion ? undefined : { duration: 22, ease: "easeInOut", repeat: Infinity, repeatType: "mirror" }}
+      >
+        <Image
+          src={IMAGES.cover}
+          alt="Mentari Wedding Cover"
+          fill
+          priority
+          className="object-cover"
+          sizes="(max-width: 896px) 112vw, 1000px"
+        />
+      </motion.div>
+      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/55 to-black/65" />
+      <motion.div
+        className="pointer-events-none absolute -inset-x-1/2 top-0 h-[60%] bg-[radial-gradient(ellipse_at_center,rgba(230,202,133,0.22),transparent_62%)] mix-blend-screen"
+        animate={reduceMotion ? undefined : { x: ["-16%", "16%", "-8%"] }}
+        transition={reduceMotion ? undefined : { duration: 16, ease: "easeInOut", repeat: Infinity, repeatType: "mirror" }}
       />
-      <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/50 to-black/70" />
 
       <div className="relative z-10 flex flex-col justify-between flex-1 min-h-[var(--pl-page-min)] md:min-h-[min(840px,calc(100vh-9.5rem))]">
         <div className="page-header-bar border-white/20 !justify-center md:!pt-8 md:!pb-5 !pt-[calc(1.1rem+env(safe-area-inset-top,0px))]">
           <span className="inline-block px-3 sm:px-4 py-1.5 rounded-full border border-gold/70 text-[9px] sm:text-[10px] font-bold tracking-[0.22em] sm:tracking-[0.3em] text-gold uppercase bg-black/50 backdrop-blur-md">
-The Wedding Investment Book
+{SEASONAL_EDITION.label}
           </span>
         </div>
 
@@ -51,14 +66,13 @@ The Wedding Investment Book
           <h2 className="font-cinzel text-base sm:text-2xl font-bold tracking-widest text-white uppercase">
             The Wedding Investment Guide
           </h2>
-          <p className="font-serif text-gold-light italic text-sm sm:text-base">
-            Collection 2026 / 2027
-          </p>
+          <p className="font-serif text-gold-light italic text-sm sm:text-base">Collection 2026 / 2027</p>
+          <p className="font-cinzel text-[8px] font-bold tracking-[0.14em] text-gold/80 uppercase">{SEASONAL_EDITION.title}</p>
         </div>
 
         <div className="page-footer-bar border-white/20 text-[10px] sm:text-xs">
           <span className="text-gray-300 font-light text-left leading-snug">
-            Jakarta & Sukabumi Executive Edition
+            Cibadak & Sukabumi Executive Edition
           </span>
           <span className="font-cinzel text-gold font-bold tracking-widest shrink-0">
             PAGE {padPage(1)} / {padPage(TOTAL_PAGES)}
