@@ -85,7 +85,7 @@ export const COLOR_EDIT_2026 = [
     season: "Spring garden edit",
     colors: ["#f2d682", "#b7c5a5", "#fbf7ee", "#8c7448"],
     bestFor: "Garden wedding, lamaran outdoor, dan celebration yang fresh.",
-    image: "/images/JOURNEY3.jpg",
+    image: "/images/ROMANCE1.jpg",
   },
   {
     id: "blue-silver",
@@ -93,7 +93,7 @@ export const COLOR_EDIT_2026 = [
     season: "Modern romance edit",
     colors: ["#8ba7be", "#d6dce0", "#f8f7f3", "#546774"],
     bestFor: "Modern reception, clean editorial décor, dan glasshouse setting.",
-    image: "/images/ROMANCE4.jpg",
+    image: "/images/JOURNEY1.jpg",
   },
   {
     id: "plum",
