@@ -11,9 +11,10 @@ type Props = {
   onOpenNavigator: () => void;
   onOpenConsultation: () => void;
   onShare: () => void;
+  nextLabel: string;
 };
 
-export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, onOpenConsultation, onShare }: Props) {
+export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, onOpenConsultation, onShare, nextLabel }: Props) {
   return (
     <>
       {/* Mobile dock */}
@@ -21,6 +22,9 @@ export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, o
         id="magazine-footer"
         className="md:hidden fixed inset-x-0 bottom-0 z-40 bg-charcoal/90 backdrop-blur-md border-t border-gold/30 text-white px-3 py-2.5 pb-[max(0.625rem,env(safe-area-inset-bottom))]"
       >
+        <button type="button" onClick={onNext} disabled={currentPage >= TOTAL_PAGES} className="mb-1.5 block w-full truncate text-left font-cinzel text-[7px] font-bold tracking-[0.14em] text-gold/85 uppercase disabled:opacity-40">
+          Next chapter · {nextLabel} →
+        </button>
         <div className="flex items-center gap-2">
           <button
             type="button"
@@ -68,9 +72,11 @@ export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, o
             <ArrowLeft className="w-3.5 h-3.5" /> Prev
           </button>
 
-          <span className="font-cinzel text-[11px] tracking-[0.22em] text-gold/90 font-bold tabular-nums">
-            HALAMAN {padPage(currentPage)} / {padPage(TOTAL_PAGES)}
-          </span>
+          <button type="button" onClick={onNext} disabled={currentPage >= TOTAL_PAGES} className="group text-center disabled:opacity-40">
+            <span className="block font-cinzel text-[7px] tracking-[0.16em] text-gray-400 uppercase">Next chapter</span>
+            <span className="block font-serif text-xs text-gold-light transition group-hover:text-white">{nextLabel} <ArrowRight className="mb-0.5 inline h-3 w-3" /></span>
+            <span className="mt-0.5 block font-cinzel text-[8px] tracking-[0.16em] text-gold/70">PAGE {padPage(currentPage)} / {padPage(TOTAL_PAGES)}</span>
+          </button>
 
           <button
             type="button"

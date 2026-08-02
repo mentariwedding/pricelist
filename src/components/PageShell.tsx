@@ -20,9 +20,11 @@ export function PageShell({
   hideDefaultFooter = false,
   clipContent = false,
 }: Props) {
+  const isWarmSpread = [2, 5, 9, 11, 16].includes(page);
+
   return (
     <div
-      className={`magazine-page ${clipContent ? "page-clip" : ""} rounded-none md:rounded-2xl flex flex-col justify-between relative ${className}`}
+      className={`magazine-page ${isWarmSpread ? "editorial-warm" : ""} ${clipContent ? "page-clip" : ""} rounded-none md:rounded-2xl flex flex-col justify-between relative ${className}`}
     >
       <div className="page-inner-border absolute inset-3 sm:inset-6 rounded-xl pointer-events-none z-20 hidden sm:block" />
       {children}

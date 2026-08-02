@@ -140,6 +140,8 @@ export function MagazineReader() {
     window.scrollTo({ top: 0, behavior: "auto" });
   }, [currentPage]);
 
+  const nextLabel = TOC_ITEMS.find((item) => item.page === currentPage + 1)?.title.replace(/^\d+\. /, "") ?? "Back Cover & Studio Contact";
+
   const pages = [
     <CoverPage key={1} />,
     <TocPage key={2} onNavigate={goToPage} />,
@@ -223,6 +225,7 @@ export function MagazineReader() {
         onOpenNavigator={() => setNavigatorOpen(true)}
         onOpenConsultation={() => setConsultationIntent("consultation")}
         onShare={shareLookbook}
+        nextLabel={nextLabel}
       />
 
       <AnimatePresence>
