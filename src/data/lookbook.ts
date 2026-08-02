@@ -784,5 +784,5 @@ export const IMAGES = {
   cover: "/images/pavilion.JPG",
   portrait: "/images/logo.jpg",
   brandStory: "/images/signature.JPG",
-  backCover: "/images/harmoni.jpg",
+  backCover: "/images/venue-pontis-kopi.jpg",
 } as const;
