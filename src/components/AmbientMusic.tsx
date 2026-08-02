@@ -40,7 +40,7 @@ export function AmbientMusicProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    audio.volume = 0.18;
+    audio.volume = 0.75;
 
     const savedPreference = window.localStorage.getItem("mentari-ambient-music");
     // Respect a previous decision to keep the experience silent.
