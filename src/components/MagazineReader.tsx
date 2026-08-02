@@ -28,6 +28,7 @@ import { CalculatorPage } from "@/components/pages/CalculatorPage";
 import { BackCoverPage } from "@/components/pages/BackCoverPage";
 import { DEFAULT_VENUES, GALLERY, TOC_ITEMS, TOTAL_PAGES } from "@/data/lookbook";
 import { ConsultationModal } from "@/components/ConsultationModal";
+import { AmbientMusic } from "@/components/AmbientMusic";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
 
 type VenueItem = {
@@ -217,6 +218,8 @@ export function MagazineReader() {
           <div key={`print-${index}`} className="page-view">{page}</div>
         ))}
       </div>
+
+      <AmbientMusic />
 
       <MagazineFooter
         currentPage={currentPage}
