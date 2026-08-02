@@ -15,7 +15,7 @@ const CONTACT_ITEMS = [
 
 export function BackCoverPage() {
   return (
-    <PageShell page={16} hideDefaultFooter clipContent className="text-white !bg-charcoal">
+    <PageShell page={20} hideDefaultFooter clipContent className="text-white !bg-charcoal">
       <Image src={IMAGES.backCover} alt="Mentari Wedding closing scene" fill className="object-cover" sizes="(max-width: 896px) 100vw, 896px" />
       <div className="absolute inset-0 bg-gradient-to-br from-black/85 via-charcoal/80 to-black/35" />
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_76%_20%,rgba(197,160,89,.24),transparent_29%)]" />
@@ -24,7 +24,7 @@ export function BackCoverPage() {
       <div className="relative z-10 flex min-h-[var(--pl-page-min)] flex-1 flex-col md:min-h-[min(840px,calc(100vh-9.5rem))]">
         <header className="page-header-bar border-white/15 !justify-between">
           <span className="font-cinzel text-[9px] font-bold tracking-[0.2em] text-gold uppercase">Until the next beautiful chapter</span>
-          <span className="font-cinzel text-[9px] tracking-[0.14em] text-gray-300 uppercase">16 / 16</span>
+          <span className="font-cinzel text-[9px] tracking-[0.14em] text-gray-300 uppercase">20 / 20</span>
         </header>
 
         <main className="page-body my-auto w-full max-w-2xl space-y-5 md:ml-[10%]">

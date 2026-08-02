@@ -14,11 +14,15 @@ import { VendorsPage } from "@/components/pages/VendorsPage";
 import { GalleryPage } from "@/components/pages/GalleryPage";
 import { WeddingDetailsPage } from "@/components/pages/WeddingDetailsPage";
 import {
+  EngagementPage,
   IntimatePage,
   RoyalPage,
   ImperialPage,
 } from "@/components/pages/PackagePages";
 import { AddonsPage } from "@/components/pages/AddonsPage";
+import { SiramanPage } from "@/components/pages/SiramanPage";
+import { WeddingCrewPage } from "@/components/pages/WeddingCrewPage";
+import { TestimonyPage } from "@/components/pages/TestimonyPage";
 import { TermsPage } from "@/components/pages/TermsPage";
 import { CalculatorPage } from "@/components/pages/CalculatorPage";
 import { BackCoverPage } from "@/components/pages/BackCoverPage";
@@ -129,13 +133,17 @@ export function MagazineReader() {
     <VendorsPage key={7} />,
     <GalleryPage key={8} items={gallery} />,
     <WeddingDetailsPage key={9} />,
-    <IntimatePage key={10} />,
-    <RoyalPage key={11} />,
-    <ImperialPage key={12} />,
-    <AddonsPage key={13} />,
-    <TermsPage key={14} />,
-    <CalculatorPage key={15} />,
-    <BackCoverPage key={16} />,
+    <EngagementPage key={10} />,
+    <SiramanPage key={11} />,
+    <WeddingCrewPage key={12} />,
+    <IntimatePage key={13} />,
+    <RoyalPage key={14} />,
+    <ImperialPage key={15} />,
+    <AddonsPage key={16} />,
+    <TermsPage key={17} />,
+    <CalculatorPage key={18} />,
+    <TestimonyPage key={19} />,
+    <BackCoverPage key={20} />,
   ];
 
   return (

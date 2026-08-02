@@ -9,10 +9,11 @@ import { formatIDR, waLink } from "@/lib/format";
 const CALC_ADDONS = ADDONS.filter((a) => a.calc);
 
 export function CalculatorPage() {
-  const [pkgId, setPkgId] = useState(PACKAGES[1].id);
+  const defaultPackage = PACKAGES.find((item) => item.id === "royal") ?? PACKAGES[0];
+  const [pkgId, setPkgId] = useState(defaultPackage.id);
   const [selected, setSelected] = useState<Record<string, boolean>>({});
 
-  const pkg = PACKAGES.find((p) => p.id === pkgId) ?? PACKAGES[1];
+  const pkg = PACKAGES.find((p) => p.id === pkgId) ?? defaultPackage;
 
   const { total, addonNames } = useMemo(() => {
     const names: string[] = [];
@@ -27,7 +28,7 @@ export function CalculatorPage() {
   }, [pkg, selected]);
 
   const message = useMemo(() => {
-    let msg = `Halo Mentari Wedding Organizer, saya mencoba simulasi anggaran di Lookbook Halaman 15:\n\n• Paket Utama: ${pkg.name} (${formatIDR(pkg.price)})\n`;
+    let msg = `Halo Mentari Wedding Organizer, saya mencoba simulasi anggaran di Lookbook Halaman 18:\n\n• Paket Utama: ${pkg.name} (${formatIDR(pkg.price)})\n`;
     if (addonNames.length > 0) {
       msg += `• Add-ons: ${addonNames.join(", ")}\n`;
     }
@@ -36,7 +37,7 @@ export function CalculatorPage() {
   }, [pkg, addonNames, total]);
 
   return (
-    <PageShell page={15} className="investment-page text-white" footerDark>
+    <PageShell page={18} className="investment-page text-white" footerDark>
       <PageHeader
         left="Curated Proposal Builder"
         right="Your Wedding Investment, Personalised"

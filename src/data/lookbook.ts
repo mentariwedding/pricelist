@@ -1,4 +1,4 @@
-export const TOTAL_PAGES = 16;
+export const TOTAL_PAGES = 20;
 
 export const TOC_ITEMS = [
   { title: "01. Cover & Executive Edition", page: 1 },
@@ -10,13 +10,17 @@ export const TOC_ITEMS = [
   { title: "07. Premium Vendors Directory", page: 7 },
   { title: "08. Editorial Gallery Showcase", page: 8 },
   { title: "09. Wedding Details & Inclusions", page: 9 },
-  { title: "10. Paket: The Intimate Journey", page: 10 },
-  { title: "11. Paket: The Royal Romance", page: 11 },
-  { title: "12. Paket: The Imperial Luxury", page: 12 },
-  { title: "13. Expanded À La Carte Add-ons", page: 13 },
-  { title: "14. Booking Process & Terms", page: 14 },
-  { title: "15. Interactive Budget Calculator", page: 15 },
-  { title: "16. Back Cover & Studio Contact", page: 16 },
+  { title: "10. Paket Lamaran: The Engagement Edit", page: 10 },
+  { title: "11. Paket Siraman: Ritual Collection", page: 11 },
+  { title: "12. Wedding Crew Service", page: 12 },
+  { title: "13. Paket: The Intimate Journey", page: 13 },
+  { title: "14. Paket: The Royal Romance", page: 14 },
+  { title: "15. Paket: The Imperial Luxury", page: 15 },
+  { title: "16. Expanded À La Carte Add-ons", page: 16 },
+  { title: "17. Booking Process & Terms", page: 17 },
+  { title: "18. Interactive Budget Calculator", page: 18 },
+  { title: "19. Our Testimony — #KataMereka", page: 19 },
+  { title: "20. Back Cover & Studio Contact", page: 20 },
 ] as const;
 
 export const PILLARS = [
@@ -161,8 +165,8 @@ export const VENDORS: Vendor[] = [
   },
   {
     icon: "Music",
-    title: "Ganesa82",
-    desc: "Live music entertainment dengan berbagai genre dari acoustic hingga full band performance.",
+    title: "Ganesa82 Musik",
+    desc: "Partner live music untuk menghadirkan suasana perayaan yang hangat dan berkesan.",
   },
   {
     icon: "Mic",
@@ -176,12 +180,69 @@ export const VENDORS: Vendor[] = [
   },
   {
     icon: "Palette",
-    title: "Kala Kita",
-    desc: "Creative decoration & styling dengan concept unique artistic dan personalized theme.",
+    title: "Kala Kita EO",
+    desc: "Partner event organizer untuk koordinasi dan pengalaman acara yang terarah.",
+  },
+  {
+    icon: "Building2",
+    title: "Mercure Cibadak",
+    desc: "Partner venue untuk kebutuhan perayaan dan akomodasi acara.",
+  },
+  {
+    icon: "Palette",
+    title: "Sanggar Gumintang",
+    desc: "Partner kreatif untuk kebutuhan tradisi dan detail budaya acara.",
+  },
+  {
+    icon: "Camera",
+    title: "Trezone Photobooth",
+    desc: "Partner photobooth untuk pengalaman tamu yang interaktif.",
+  },
+  {
+    icon: "Camera",
+    title: "Kala Moment",
+    desc: "Partner dokumentasi untuk mengabadikan momen perayaan.",
+  },
+  {
+    icon: "Sparkles",
+    title: "YSR Himalaya",
+    desc: "Partner pilihan dalam ekosistem vendor Mentari Wedding.",
+  },
+  {
+    icon: "Flower2",
+    title: "Eva Florist",
+    desc: "Partner florist untuk rangkaian bunga dan detail dekorasi acara.",
   },
 ];
 
 export const GALLERY = [
+  { image: "/images/adat1.jpg", caption: "Traditional Ceremony Entrance" },
+  { image: "/images/adat2.jpg", caption: "Celebratory Family Moment" },
+  { image: "/images/adat3.jpg", caption: "Graceful Traditional Procession" },
+  { image: "/images/banner.jpg", caption: "Ceremony Detail" },
+  { image: "/images/bg2.jpg", caption: "Traditional Couple Portrait" },
+  { image: "/images/bg3.jpg", caption: "Grand Traditional Reception" },
+  { image: "/images/bride.jpg", caption: "Bridal Couture" },
+  { image: "/images/crew1.jpg", caption: "Wedding Team in Action" },
+  { image: "/images/crew2.jpeg", caption: "The Mentari Crew" },
+  { image: "/images/dekor1.jpg", caption: "Blue Garden Arch" },
+  { image: "/images/dekor2.jpg", caption: "Botanical Seating" },
+  { image: "/images/dekor3.jpg", caption: "Golden Aisle" },
+  { image: "/images/hand1.jpg", caption: "Ring & Floral Detail" },
+  { image: "/images/hand2.jpg", caption: "Bridal Bouquet" },
+  { image: "/images/hand3.jpg", caption: "Red Floral Detail" },
+  { image: "/images/hena.jpg", caption: "Henna Detail" },
+  { image: "/images/invite1.jpg", caption: "Playful Stationery" },
+  { image: "/images/invite2.jpg", caption: "Classic Invitation Suite" },
+  { image: "/images/invite3.jpg", caption: "Evening Invitation Detail" },
+  { image: "/images/kue.jpg", caption: "Wedding Cake Detail" },
+  { image: "/images/kursi.jpg", caption: "Floral Table Detail" },
+  { image: "/images/lamaran1.jpg", caption: "Engagement Garden Aisle" },
+  { image: "/images/lamaran2.jpg", caption: "Engagement Floral Setting" },
+  { image: "/images/mc.jpg", caption: "Master of Ceremony" },
+  { image: "/images/prewed.jpg", caption: "Prewedding Ride" },
+  { image: "/images/siraman1.jpg", caption: "Siraman Ritual Detail" },
+  { image: "/images/siraman2.jpg", caption: "Siraman Floral Setting" },
   {
     image: "/images/estetik.JPG",
     caption: "Grand Floral Arch",
@@ -288,6 +349,33 @@ export const GALLERY = [
   },
 ] as const;
 
+export const TESTIMONIALS = [
+  {
+    name: "Disa & Alam",
+    event: "Wedding Celebration",
+    image: "/images/testi1.jpg",
+    quote: "Keputusan terbaik kami adalah mempercayakan Mentari sebagai partner pernikahan. Karena kami bekerja di luar kota, awalnya kami khawatir dengan proses persiapan dan koordinasi vendor. Namun seluruh preparation, komunikasi vendor, hingga rundown acara ditangani dengan rapi dan penuh perhatian.",
+  },
+  {
+    name: "Nadia & Reza",
+    event: "Wedding Celebration",
+    image: "/images/testi2.jpg",
+    quote: "Tim Mentari membuat kami bisa menikmati setiap proses tanpa merasa kewalahan. Semua detail terasa terarah, respons tim sangat menenangkan, dan hari acara berjalan jauh lebih indah dari yang kami bayangkan.",
+  },
+  {
+    name: "Tiara & Bagas",
+    event: "Intimate Celebration",
+    image: "/images/testi3.jpg",
+    quote: "Dari konsep hingga eksekusi, Mentari benar-benar memahami karakter kami. Suasana acara terasa hangat, personal, dan semua keluarga merasa dilayani dengan sangat baik.",
+  },
+  {
+    name: "Alya & Dimas",
+    event: "Family Celebration",
+    image: "/images/testi4.jpg",
+    quote: "Kami sangat terbantu dengan koordinasi tim di hari H. Vendor, keluarga, dan rangkaian acara dapat berjalan selaras sehingga kami bisa fokus menikmati momen bersama orang-orang terdekat.",
+  },
+] as const;
+
 export type PackageTier = {
   id: string;
   name: string;
@@ -296,76 +384,180 @@ export type PackageTier = {
   subtitle: string;
   popular?: boolean;
   image: string;
+  galleryImages?: string[];
   features: string[];
   idealFor: string;
   planningWindow: string;
   team: string;
   experience: string;
+  priceOptions?: { label: string; price: number }[];
+  vendorSections?: VendorSection[];
+  complimentary?: string[];
+  conceptTags?: string[];
+  note?: string;
   bonus?: string;
 };
 
+type VendorSection = { title: string; items: string[] };
+
+const VENUE_INCLUSIONS = [
+  "Gedung resepsi", "Area parkir", "Listrik 5.000 watt", "100 kursi futura", "Ruang makeup",
+];
+const STANDARD_DECORATION = [
+  "Backdrop dan stage pelaminan", "Dekorasi serta sofa pelaminan", "Taman pelaminan", "Dekorasi akad", "Standing flower akad", "6 kursi Tiffany akad", "Meja akad dan kotak ampau", "Standing flower", "Dekorasi photo booth", "Dekorasi gateway", "Dekorasi penerima tamu", "Dekorasi entrance / lorong", "Dekorasi hiburan", "Stage music 3 × 4 m", "Pergola 4 × 4 m", "Karpet jalan", "Lighting backdrop", "Hand bouquet", "Bunga mobil", "Welcome sign", "Janur",
+];
+const ENTERTAINMENT_INCLUSIONS = ["Sound system akad", "Sound system resepsi", "Vocalist", "Keyboardist", "Saxophonist"];
+const ATTIRE_INCLUSIONS = ["Busana akad mempelai wanita", "Busana akad mempelai pria", "Busana resepsi mempelai wanita", "Busana / jas resepsi mempelai pria", "Aksesori pengantin: siger / crown", "Busana ibu hajat", "Busana ibu besan", "Busana bapak hajat", "Busana bapak besan", "Busana pagar ayu / sister (4 orang)"];
+const MUA_INCLUSIONS = ["Makeup akad mempelai wanita", "Hijab / hairdo akad mempelai wanita", "Retouch resepsi mempelai wanita", "Fresh flower melati", "Makeup ibu mempelai wanita", "Makeup ibu mempelai pria", "Hair / hijab do ibu mempelai wanita", "Hair / hijab do ibu mempelai pria", "Makeup saudara (4 orang)", "Hair / hijab do saudara (4 orang)", "Makeup prewedding"];
+const DOCUMENTATION_INCLUSIONS = ["Prewedding shoot", "Cetak pembesaran prewedding 16R (60 × 40 cm) + frame", "Wedding shoot", "1 album 20 × 30 cm (22–30 halaman)", "Cetak pembesaran wedding 16R (60 × 40 cm) + frame", "Video cinematic 2–3 menit", "All selected files edited", "Flashdisk"];
+const MC_INCLUSIONS = ["MC akad", "MC resepsi", "MC tradisional / saweran dan adat"];
+
+function createVendorSections(decoration: string[], catering: string[], weddingOrganizer: string[]): VendorSection[] {
+  return [
+    { title: "Venue", items: VENUE_INCLUSIONS },
+    { title: "Decoration", items: decoration },
+    { title: "Entertainment", items: ENTERTAINMENT_INCLUSIONS },
+    { title: "Attire & Suit", items: ATTIRE_INCLUSIONS },
+    { title: "Makeup Artist", items: MUA_INCLUSIONS },
+    { title: "Documentation", items: DOCUMENTATION_INCLUSIONS },
+    { title: "MC", items: MC_INCLUSIONS },
+    { title: "Catering", items: catering },
+    { title: "Wedding Organizer", items: weddingOrganizer },
+  ];
+}
+
 export const PACKAGES: PackageTier[] = [
+  {
+    id: "engagement",
+    name: "THE ENGAGEMENT EDIT",
+    price: 5_500_000,
+    tag: "Paket Lamaran · Mulai Dari",
+    subtitle: "A Thoughtful Engagement Celebration",
+    image: "/images/lamaran1.jpg",
+    galleryImages: ["/images/lamaran2.jpg", "/images/invite2.jpg"],
+    idealFor: "Lamaran intimate",
+    planningWindow: "Sesuai tanggal acara",
+    team: "Tim inti Mentari",
+    experience: "Warm & personal",
+    features: [
+      "Dekorasi backdrop lamaran ukuran 3,5 meter.",
+      "Rangkaian fresh flower dan artificial flower.",
+      "6 kursi duduk, meja, dekorasi bunga jalan, dan pijakan kayu.",
+      "Mirror sign sebagai detail penyambutan.",
+      "Makeup Artist (MUA) untuk acara lamaran.",
+      "Fotografer — seluruh file data (tanpa proses editing).",
+      "Master of Ceremony (MC).",
+    ],
+    note: "Opsi dekorasi backdrop saja mulai dari Rp2.500.000.",
+  },
   {
     id: "intimate",
     name: "THE INTIMATE JOURNEY",
-    price: 35_000_000,
-    tag: "Paket Intimate (100 - 150 Pax)",
+    price: 105_000_000,
+    tag: "Paket Intimate · Venue & Catering",
     subtitle: "Akad & Intimate Reception",
-    image: "/images/suasana.JPG",
-    idealFor: "100–150 tamu",
+    image: "/images/dekor2.jpg",
+    galleryImages: ["/images/adat1.jpg", "/images/hand1.jpg", "/images/invite1.jpg"],
+    idealFor: "500–1.000 pax",
     planningWindow: "H-30 hari",
-    team: "4 profesional",
+    team: "7–10 wedding crew",
     experience: "Intimate & personal",
-    features: [
-      "Wedding Organizer: Pendampingan H-30, 4 Personel Tim Profesional D-Day.",
-      "Decoration: Backdrop Akad / Intimate (4 Meter), Fresh Flower Accent, Welcome Board, Mini Gallery.",
-      "Documentation: 1 Lead Photographer & 1 Videographer (6 Jam Kerja), All Unedited Files + 50 Edited Photos.",
-      "Attire & Makeup: 1 Set Busana Akad Pengantin & Makeup Eksklusif + Makeup Ibu Pasangan (2 Orang).",
-      "Sound System: Standard Acoustic Sound System 2000W.",
+    priceOptions: [
+      { label: "Venue & catering 1.000 pax", price: 119_000_000 },
+      { label: "Venue & catering 500 pax", price: 105_000_000 },
     ],
+    vendorSections: createVendorSections(
+      STANDARD_DECORATION,
+      ["Catering 1.000 pax", "Nasi putih", "Beef teriyaki / rendang", "Ayam suwir", "Kentang mustofa / potato chip", "Gado-gado Bangkok", "Sop mutiara", "Kerupuk", "Air mineral", "Es krim / pudding", "Buah potong", "Foodstall bakso 100 pax"],
+      ["4 professional usher", "Rundown acara", "Database", "Cuecard MC", "Konsultasi acara", "Penyusunan agenda kerja klien", "Koordinasi & konfirmasi vendor", "Pendampingan fitting", "Layout & tools", "Pembahasan konsep prewedding", "Pendampingan prewedding", "Berita acara", "7–10 wedding crew", "Content creator"],
+    ),
+    complimentary: ["Tenda makan", "100 kursi futura", "White Elegance"],
+    features: ["Venue dan catering", "Vendor list terkurasi", "Wedding coordination"],
   },
   {
     id: "royal",
     name: "THE ROYAL ROMANCE",
-    price: 75_000_000,
+    price: 129_000_000,
     tag: "MOST POPULAR COLLECTION",
-    subtitle: "Dirancang untuk Resepsi Modern (300 - 500 Pax)",
+    subtitle: "Venue, Catering & Complete Vendor Coordination",
     popular: true,
-    image: "/images/harmoni.jpg",
-    idealFor: "300–500 tamu",
+    image: "/images/dekor1.jpg",
+    galleryImages: ["/images/bg2.jpg", "/images/hand2.jpg", "/images/invite2.jpg"],
+    idealFor: "500–1.000 pax",
     planningWindow: "H-6 bulan",
-    team: "9 profesional",
+    team: "7–10 wedding crew",
     experience: "Polished & celebratory",
-    features: [
-      "Full Wedding Planning: Pendampingan komprehensif dari H-6 Bulan, Unlimited Consultation.",
-      "On-the-Day Team: Dedicated Event Manager + 8 Personel Tim Lapangan Standby.",
-      "Decoration: Grand Pelaminan 8-10M (Full Fresh Flowers), Entrance Gate, Photobooth 3D Custom, Aisle Runner & Lighting Setup.",
-      "Documentation: 2 Photographers + 1 Cinematic Videographer, Highlight Reel 1 Menit (Reels/TikTok Ready), Premium Album Hardcover.",
-      "Entertainment: Professional MC & Acoustic Band (Vocal, Keyboard, Saxophone/Guitar).",
+    priceOptions: [
+      { label: "Venue & catering 1.000 pax", price: 149_000_000 },
+      { label: "Venue & catering 500 pax", price: 129_000_000 },
     ],
-    bonus: "Hand Bouquet Import & Special Confetti Effect.",
+    vendorSections: createVendorSections(
+      [...STANDARD_DECORATION, "Lighting lorong"],
+      ["Catering 1.000 pax", "Nasi putih", "Daging teriyaki / sapi lada hitam", "Ayam suwir / ayam opor keju", "Cah brokoli / gado-gado Bangkok", "Sop daging sapi jamur", "Kerupuk", "Air mineral", "Puding aneka buah", "Es krim", "Soft drink", "Foodstall bakso / mie kocok 200 pax", "Foodstall siomay 200 pax", "Coffee break lontong kari 100 pax", "Dekorasi VIP", "Dekorasi prasmanan"],
+      ["Rundown acara", "Database", "Cuecard MC", "Konsultasi acara", "Penyusunan agenda kerja klien", "Koordinasi & konfirmasi vendor", "Pendampingan fitting", "Layout & tools", "Pembahasan konsep prewedding", "Pendampingan prewedding", "Berita acara", "7–10 wedding crew", "2 content creator"],
+    ),
+    complimentary: ["Tenda makan", "4 professional usher", "External lighting: beam, parled, fresnel", "2 ice cooler", "Kain cover hitam untuk konsep gelap", "Jas prewed by Jasso Groom", "D-Day grooming for groom", "200 kursi futura", "Prewedding concept by Mojan Concept"],
+    conceptTags: ["White Elegance", "Garden Ambience", "Sweet Colour", "Night Party"],
+    features: ["Venue dan catering", "Vendor list terkurasi", "Wedding coordination"],
   },
   {
     id: "imperial",
     name: "THE IMPERIAL LUXURY",
-    price: 135_000_000,
-    tag: "Grand Ballroom (500+ Pax)",
+    price: 205_000_000,
+    tag: "Imperial Luxury · Venue & Catering",
     subtitle: "Grand Ballroom & Luxury Celebration",
-    image: "/images/pavilion.JPG",
-    idealFor: "500+ tamu",
+    image: "/images/bg3.jpg",
+    galleryImages: ["/images/dekor3.jpg", "/images/bride.jpg", "/images/invite3.jpg", "/images/hand3.jpg"],
+    idealFor: "500–1.000 pax",
     planningWindow: "H-1 tahun",
-    team: "14 profesional",
+    team: "7–10 wedding crew",
     experience: "Couture & cinematic",
-    features: [
-      "Full Custom Concept: Concept & Moodboard Design khusus dari H-1 Tahun.",
-      "Full Team: Project Manager + 12 Personel Tim Lapangan & Personal Assistant Pengantin.",
-      "Luxury Decorations: Custom Design Pelaminan 12M+, Tunnel Entrance, Hanging Flower Canopy, Photobooth Interactive.",
-      "Documentation & Media: 3 Photographers, 2 Videographers, Drone Aerial Footage, Fast-Track Highlight Video (D-Day Display).",
-      "Special Effects: Cold Spark / Sparklers Pyro Effect, Low Fog Machine untuk First Dance.",
-      "Entertainment: Full Entertainment Band / Chamber Ensemble & Master of Ceremony (MC Hits).",
+    priceOptions: [
+      { label: "Venue & catering 1.000 pax", price: 229_000_000 },
+      { label: "Venue & catering 500 pax", price: 205_000_000 },
+      { label: "Venue & Samudra Catering 1.000 pax", price: 279_000_000 },
     ],
+    vendorSections: createVendorSections(
+      ["Custom design backdrop pelaminan", ...STANDARD_DECORATION.slice(1), "Lighting lorong"],
+      ["Catering 1.000 pax", "Nasi putih", "Aneka olahan daging", "Aneka olahan ayam", "Aneka olahan sop", "Aneka olahan sayuran", "Kerupuk", "Air mineral", "Puding aneka buah", "Aneka kue", "Soft drink", "Salad bar", "Foodstall sate ayam", "Foodstall empek-empek", "Foodstall siomay", "Foodstall Thai suki", "Coffee break lontong kari", "Dekorasi VIP", "Dekorasi prasmanan"],
+      ["Rundown acara", "Database", "Cuecard MC", "Konsultasi acara", "Penyusunan agenda kerja klien", "Koordinasi & konfirmasi vendor", "Pendampingan fitting", "Layout & tools", "Pembahasan konsep prewedding", "Pendampingan prewedding", "Berita acara", "7–10 wedding crew", "2 content creator"],
+    ),
+    complimentary: ["Tenda makan", "4 professional usher", "External lighting: beam, parled, fresnel", "2 ice cooler", "Kain cover hitam untuk konsep gelap", "Jas prewed by Jasso Groom", "D-Day grooming for groom", "200 kursi futura", "Prewedding concept by Mojan Concept", "Digital invitation"],
+    conceptTags: ["White Elegance", "Garden Ambience", "Sweet Colour", "Night Party"],
+    features: ["Venue dan catering", "Vendor list terkurasi", "Wedding coordination"],
   },
 ];
+
+export const SIRAMAN_CONCEPTS = [
+  { id: "garden", name: "Garden Concept", price: 16_500_000, accent: "The most immersive setting" },
+  { id: "standard", name: "Standard Concept", price: 9_500_000, accent: "A complete ceremonial setting" },
+  { id: "minimalist", name: "Minimalist Concept", price: 7_500_000, accent: "Simple, intimate, and graceful" },
+] as const;
+
+export const SIRAMAN_INCLUSIONS = [
+  "Dekorasi siraman sesuai konsep pilihan",
+  "Backdrop sungkeman dan backdrop siraman",
+  "Bando, dodotan, dan melati",
+  "Minus one serta kacapi suling",
+  "Pemandu siraman",
+  "1 Makeup Artist (MUA)",
+  "1 hijab styling / hairdo",
+  "Sound system dan 3 mikrofon wireless",
+  "Peralatan serta perlengkapan siraman",
+  "Bunga rampe dan kimono",
+] as const;
+
+export const WEDDING_CREW_SERVICES = [
+  { name: "Siraman / Engagement", pax: "50 pax", duration: "3 jam", price: 2_800_000 },
+  { name: "Akad / Pemberkatan", pax: "100 pax", duration: "4 jam", price: 3_800_000 },
+  { name: "Intimate", pax: "200 pax", duration: "6 jam", price: 4_800_000 },
+  { name: "Royal", pax: "<500 pax", duration: "8 jam", price: 5_300_000 },
+  { name: "Royal A (Tanpa Siraman)", pax: "500–1.000 pax", duration: "8 jam", price: 5_800_000 },
+  { name: "Royal A (Siraman)", pax: "500–1.000 pax", duration: "8 jam", price: 6_800_000 },
+  { name: "Royal B (Tanpa Siraman)", pax: "1.000–2.000 pax", duration: "8 jam", price: 7_300_000 },
+  { name: "Royal B (Siraman)", pax: "1.000–2.000 pax", duration: "8 jam", price: 8_300_000 },
+  { name: "Full Service", pax: "Custom scale", duration: "8 jam", price: 15_800_000 },
+] as const;
 
 export type Addon = {
   name: string;

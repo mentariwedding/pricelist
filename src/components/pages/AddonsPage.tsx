@@ -20,7 +20,7 @@ function addonBadge(name: string) {
 
 export function AddonsPage() {
   return (
-    <PageShell page={13}>
+    <PageShell page={16}>
       <PageHeader
         left="Customization"
         right="Menu Layanan Ekstra (Add-ons)"
