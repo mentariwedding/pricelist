@@ -25,7 +25,7 @@ export function SiramanPage() {
         </div>
 
         <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
-          {["/images/siraman2.jpg", "/images/hena.jpg", "/images/hand1.jpg", "/images/adat3.jpg"].map((src, index) => <div key={src} className={`relative overflow-hidden border border-gold/25 ${index === 1 ? "h-28 sm:h-36" : "h-24 sm:h-32"}`}><Image src={src} alt={`Visual adat siraman ${index + 1}`} fill className="object-cover" sizes="(max-width: 640px) 48vw, 200px" /></div>)}
+          {["/images/siraman2.jpg", "/images/hena.jpg", "/images/kain.jpg", "/images/adat.JPG"].map((src, index) => <div key={src} className={`relative overflow-hidden border border-gold/25 ${index === 1 ? "h-28 sm:h-36" : "h-24 sm:h-32"}`}><Image src={src} alt={`Visual adat siraman ${index + 1}`} fill className="object-cover" sizes="(max-width: 640px) 48vw, 200px" /></div>)}
         </div>
 
         <div className="grid grid-cols-1 gap-3 sm:grid-cols-3">
