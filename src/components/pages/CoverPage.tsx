@@ -19,9 +19,9 @@ export function CoverPage() {
     >
       <motion.div
         className="absolute -inset-10"
-        initial={{ scale: 1.06, x: 0, y: 0 }}
-        animate={reduceMotion ? { scale: 1.06, x: 0, y: 0 } : { scale: [1.06, 1.18, 1.1, 1.16], x: [0, -18, 12, 0], y: [0, -10, 6, 0] }}
-        transition={reduceMotion ? { duration: 0 } : { duration: 14, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
+        initial={reduceMotion ? false : { scale: 0.96, opacity: 0.72 }}
+        animate={reduceMotion ? { scale: 1.08, opacity: 1 } : { scale: [0.96, 1.14, 1.1], opacity: [0.72, 1, 1] }}
+        transition={reduceMotion ? { duration: 0 } : { duration: 9, times: [0, 0.42, 1], ease: "easeOut", repeat: Infinity, repeatDelay: 1.5 }}
         style={{ willChange: "transform" }}
       >
         <Image
