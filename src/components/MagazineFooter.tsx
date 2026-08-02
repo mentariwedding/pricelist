@@ -1,16 +1,19 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, MessageCircle } from "lucide-react";
-import { padPage, waLink } from "@/lib/format";
+import { ArrowLeft, ArrowRight, List, MessageCircle, Share2 } from "lucide-react";
+import { padPage } from "@/lib/format";
 import { TOTAL_PAGES } from "@/data/lookbook";
 
 type Props = {
   currentPage: number;
   onPrev: () => void;
   onNext: () => void;
+  onOpenNavigator: () => void;
+  onOpenConsultation: () => void;
+  onShare: () => void;
 };
 
-export function MagazineFooter({ currentPage, onPrev, onNext }: Props) {
+export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, onOpenConsultation, onShare }: Props) {
   return (
     <>
       {/* Mobile dock */}
@@ -35,17 +38,11 @@ export function MagazineFooter({ currentPage, onPrev, onNext }: Props) {
             </span>
           </div>
 
-          <a
-            href={waLink(
-              "Halo Mentari Wedding Organizer, saya telah membaca Pricelist Lookbook dan ingin konsultasi.",
-            )}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="h-10 w-10 rounded-full gold-gradient-bg text-white flex items-center justify-center shadow-md"
-            aria-label="Hubungi WhatsApp"
-          >
-            <MessageCircle className="w-4 h-4" />
-          </a>
+          <button type="button" onClick={onOpenNavigator} className="h-10 w-10 rounded-full border border-gold/40 text-gold flex items-center justify-center" aria-label="Buka daftar isi"><List className="w-4 h-4" /></button>
+
+          <button type="button" onClick={onShare} className="h-10 w-10 rounded-full border border-gold/40 text-gold flex items-center justify-center" aria-label="Bagikan lookbook"><Share2 className="w-4 h-4" /></button>
+
+          <button type="button" onClick={onOpenConsultation} className="h-10 w-10 rounded-full gold-gradient-bg text-white flex items-center justify-center shadow-md" aria-label="Mulai konsultasi"><MessageCircle className="w-4 h-4" /></button>
 
           <button
             type="button"

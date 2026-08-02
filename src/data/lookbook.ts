@@ -317,6 +317,7 @@ export type PackageTier = {
   planningWindow: string;
   team: string;
   experience: string;
+  bestFor?: string;
   priceOptions?: { label: string; price: number }[];
   vendorSections?: VendorSection[];
   complimentary?: string[];
@@ -448,6 +449,7 @@ export const PACKAGES: PackageTier[] = [
     planningWindow: "H-1 tahun",
     team: "7–10 wedding crew",
     experience: "Couture & cinematic",
+    bestFor: "Grand celebration dengan custom luxury concept",
     priceOptions: [
       { label: "Venue & catering 1.000 pax", price: 229_000_000 },
       { label: "Venue & catering 500 pax", price: 205_000_000 },

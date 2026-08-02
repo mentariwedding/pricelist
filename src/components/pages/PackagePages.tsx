@@ -46,9 +46,8 @@ function PackagePage({
             <h2 className="font-cinzel text-2xl sm:text-3xl font-bold text-charcoal">
               {pkg.name}
             </h2>
-            {pkg.popular && (
-              <p className="text-xs text-slate-text">{pkg.subtitle}</p>
-            )}
+            <p className="text-xs text-slate-text">{pkg.subtitle}</p>
+            {pkg.bestFor && <p className="mt-2 inline-flex rounded-full border border-gold/35 bg-gold/10 px-2.5 py-1 font-cinzel text-[7px] font-bold tracking-[0.11em] text-gold-dark uppercase">Best for · {pkg.bestFor}</p>}
           </div>
           <div className="mt-2 sm:mt-0 text-left sm:text-right">
             <span className="text-[10px] text-slate-text uppercase block">
