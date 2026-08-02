@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Sun } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
-import { IMAGES, TOTAL_PAGES } from "@/data/lookbook";
+import { IMAGES, SEASONAL_EDITION, TOTAL_PAGES } from "@/data/lookbook";
 import { padPage } from "@/lib/format";
 
 export function CoverPage() {
@@ -27,7 +27,7 @@ export function CoverPage() {
       <div className="relative z-10 flex flex-col justify-between flex-1 min-h-[var(--pl-page-min)] md:min-h-[min(840px,calc(100vh-9.5rem))]">
         <div className="page-header-bar border-white/20 !justify-center md:!pt-8 md:!pb-5 !pt-[calc(1.1rem+env(safe-area-inset-top,0px))]">
           <span className="inline-block px-3 sm:px-4 py-1.5 rounded-full border border-gold/70 text-[9px] sm:text-[10px] font-bold tracking-[0.22em] sm:tracking-[0.3em] text-gold uppercase bg-black/50 backdrop-blur-md">
-The Wedding Investment Book
+{SEASONAL_EDITION.label}
           </span>
         </div>
 
@@ -51,9 +51,8 @@ The Wedding Investment Book
           <h2 className="font-cinzel text-base sm:text-2xl font-bold tracking-widest text-white uppercase">
             The Wedding Investment Guide
           </h2>
-          <p className="font-serif text-gold-light italic text-sm sm:text-base">
-            Collection 2026 / 2027
-          </p>
+          <p className="font-serif text-gold-light italic text-sm sm:text-base">Collection 2026 / 2027</p>
+          <p className="font-cinzel text-[8px] font-bold tracking-[0.14em] text-gold/80 uppercase">{SEASONAL_EDITION.title}</p>
         </div>
 
         <div className="page-footer-bar border-white/20 text-[10px] sm:text-xs">

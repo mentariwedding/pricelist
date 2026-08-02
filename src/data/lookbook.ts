@@ -70,6 +70,47 @@ export const AESTHETICS = [
   },
 ] as const;
 
+export const COLOR_EDIT_2026 = [
+  {
+    id: "mocha",
+    name: "Mocha & Champagne",
+    season: "2026 quiet luxury edit",
+    colors: ["#5a3d2e", "#a8794f", "#f3e7d3", "#d4af37"],
+    bestFor: "Ballroom, candlelit dinner, dan traditional luxury celebration.",
+    image: "/images/LUXURY3.jpg",
+  },
+  {
+    id: "butter-sage",
+    name: "Butter Yellow & Sage",
+    season: "Spring garden edit",
+    colors: ["#f2d682", "#b7c5a5", "#fbf7ee", "#8c7448"],
+    bestFor: "Garden wedding, lamaran outdoor, dan celebration yang fresh.",
+    image: "/images/JOURNEY3.jpg",
+  },
+  {
+    id: "blue-silver",
+    name: "Dusty Blue & Silver",
+    season: "Modern romance edit",
+    colors: ["#8ba7be", "#d6dce0", "#f8f7f3", "#546774"],
+    bestFor: "Modern reception, clean editorial décor, dan glasshouse setting.",
+    image: "/images/ROMANCE4.jpg",
+  },
+  {
+    id: "plum",
+    name: "Deep Plum & Rose Gold",
+    season: "Evening statement edit",
+    colors: ["#4b2838", "#8c4e63", "#e7c9be", "#b88866"],
+    bestFor: "Night party, luxury reception, dan dramatic floral styling.",
+    image: "/images/LUXURY6.jpg",
+  },
+] as const;
+
+export const SEASONAL_EDITION = {
+  label: "Curated 2026 Edition",
+  title: "Garden, Adat & Modern Romance",
+  note: "Palet dan visual pilihan untuk perayaan yang terasa personal di musim ini.",
+} as const;
+
 export const DEFAULT_VENUES = [
   {
     image: "/images/venue-GedungAntonSoedjarwo.jpg",
