@@ -159,7 +159,7 @@ function PackagePage({
         {pkg.galleryImages && (
           <section className="border-t border-gold/20 pt-4">
             <div className="mb-2 flex items-center justify-between"><p className="font-cinzel text-[8px] font-bold tracking-[0.15em] text-gold-dark uppercase">Visual edit</p><p className="text-[8px] italic text-slate-text">Adat · detail · dekorasi</p></div>
-            <div className="grid grid-cols-2 gap-2 sm:grid-cols-4">
+            <div className={`grid grid-cols-2 gap-2 ${pkg.galleryImages.length > 4 ? "sm:grid-cols-3" : "sm:grid-cols-4"}`}>
               {pkg.galleryImages.map((src, index) => <div key={src} className={`relative overflow-hidden border border-gold/25 ${index === 1 ? "h-28 sm:h-36" : "h-24 sm:h-32"}`}><Image src={src} alt={`${pkg.name} visual ${index + 1}`} fill className="object-cover transition duration-700 hover:scale-105" sizes="(max-width: 640px) 48vw, 240px" /><span className="absolute bottom-1.5 left-1.5 bg-charcoal/70 px-1.5 py-0.5 font-cinzel text-[6px] tracking-[0.1em] text-gold-light uppercase">0{index + 1}</span></div>)}
             </div>
           </section>
