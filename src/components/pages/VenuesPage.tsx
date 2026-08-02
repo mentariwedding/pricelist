@@ -8,7 +8,15 @@ import { DEFAULT_VENUES } from "@/data/lookbook";
 type VenueItem = { image: string; tag: string; title: string; desc: string; coordinates?: string; mapUrl?: string };
 
 export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
-  const list = venues?.length ? venues : [...DEFAULT_VENUES];
+  const remoteVenues = venues ?? [];
+  const fallbackVenues = DEFAULT_VENUES.filter(
+    (fallback) =>
+      !remoteVenues.some(
+        (venue) => venue.title.trim().toLowerCase() === fallback.title.trim().toLowerCase(),
+      ),
+  );
+  // Keep the curated six venue cards visible even while Supabase contains fewer records.
+  const list = [...remoteVenues, ...fallbackVenues].slice(0, 6);
 
   return (
     <PageShell page={6}>
