@@ -56,7 +56,7 @@ export function BackCoverPage({ onOpenConsultation }: { onOpenConsultation?: () 
           })}
         </section>
 
-        <footer className="relative z-10 flex items-center justify-between border-t border-white/10 px-5 py-3 text-[8px] text-gray-400 md:px-8">
+        <footer className="relative z-10 flex items-center justify-between border-t border-white/15 px-5 py-3 text-[8px] text-gray-300 md:px-8">
           <span className="font-cinzel tracking-[0.14em] text-gold/80">MENTARI WEDDING · 2026 / 27</span>
           <span>© 2026 MENTARI WEDDING ORGANIZER</span>
         </footer>
