@@ -18,10 +18,11 @@ export function CoverPage() {
       className="text-white !bg-charcoal"
     >
       <motion.div
-        className="absolute -inset-6"
-        initial={false}
-        animate={reduceMotion ? undefined : { scale: [1.04, 1.13, 1.07], x: [0, -10, 5], y: [0, -5, 2] }}
-        transition={reduceMotion ? undefined : { duration: 22, ease: "easeInOut", repeat: Infinity, repeatType: "mirror" }}
+        className="absolute -inset-10"
+        initial={reduceMotion ? false : { scale: 0.96, opacity: 0.72 }}
+        animate={reduceMotion ? { scale: 1.08, opacity: 1 } : { scale: [0.96, 1.14, 1.1], opacity: [0.72, 1, 1] }}
+        transition={reduceMotion ? { duration: 0 } : { duration: 9, times: [0, 0.42, 1], ease: "easeOut", repeat: Infinity, repeatDelay: 1.5 }}
+        style={{ willChange: "transform" }}
       >
         <Image
           src={IMAGES.cover}
@@ -34,9 +35,9 @@ export function CoverPage() {
       </motion.div>
       <div className="absolute inset-0 bg-gradient-to-t from-charcoal via-charcoal/55 to-black/65" />
       <motion.div
-        className="pointer-events-none absolute -inset-x-1/2 top-0 h-[60%] bg-[radial-gradient(ellipse_at_center,rgba(230,202,133,0.22),transparent_62%)] mix-blend-screen"
-        animate={reduceMotion ? undefined : { x: ["-16%", "16%", "-8%"] }}
-        transition={reduceMotion ? undefined : { duration: 16, ease: "easeInOut", repeat: Infinity, repeatType: "mirror" }}
+        className="pointer-events-none absolute -inset-x-1/2 top-0 h-[72%] bg-[radial-gradient(ellipse_at_center,rgba(230,202,133,0.3),transparent_62%)] mix-blend-screen"
+        animate={reduceMotion ? { x: "0%", opacity: 0.5 } : { x: ["-25%", "25%", "-12%"], opacity: [0.35, 0.8, 0.45] }}
+        transition={reduceMotion ? { duration: 0 } : { duration: 10, ease: "easeInOut", repeat: Infinity, repeatType: "reverse" }}
       />
 
       <div className="relative z-10 flex flex-col justify-between flex-1 min-h-[var(--pl-page-min)] md:min-h-[min(840px,calc(100vh-9.5rem))]">

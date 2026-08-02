@@ -28,9 +28,11 @@ export function AmbientMusicProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current;
     if (!audio) return;
     if (audio.paused) {
+      window.localStorage.setItem("mentari-ambient-music", "on");
       await startMusic();
     } else {
       audio.pause();
+      window.localStorage.setItem("mentari-ambient-music", "off");
       setIsPlaying(false);
     }
   }, [startMusic]);
@@ -39,6 +41,10 @@ export function AmbientMusicProvider({ children }: { children: ReactNode }) {
     const audio = audioRef.current;
     if (!audio) return;
     audio.volume = 0.18;
+
+    const savedPreference = window.localStorage.getItem("mentari-ambient-music");
+    // Respect a previous decision to keep the experience silent.
+    if (savedPreference === "off") return;
 
     // Attempt autoplay first. If it is blocked, the first interaction unlocks it.
     startMusic();
