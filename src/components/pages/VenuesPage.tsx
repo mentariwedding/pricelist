@@ -9,14 +9,16 @@ type VenueItem = { image: string; tag: string; title: string; desc: string; coor
 
 export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
   const remoteVenues = venues ?? [];
-  const fallbackVenues = DEFAULT_VENUES.filter(
-    (fallback) =>
-      !remoteVenues.some(
-        (venue) => venue.title.trim().toLowerCase() === fallback.title.trim().toLowerCase(),
-      ),
-  );
-  // Keep the curated six venue cards visible even while Supabase contains fewer records.
-  const list = [...remoteVenues, ...fallbackVenues].slice(0, 6);
+  // The six Mentari-curated venues are always visible. A matching Supabase record
+  // may enrich its title/description/image, but can never remove a venue card.
+  const list = DEFAULT_VENUES.map((fallback) => {
+    const remote = remoteVenues.find(
+      (venue) => venue.title.trim().toLowerCase() === fallback.title.trim().toLowerCase(),
+    );
+    return remote
+      ? { ...fallback, ...remote, coordinates: fallback.coordinates, mapUrl: fallback.mapUrl }
+      : fallback;
+  });
 
   return (
     <PageShell page={6}>
@@ -27,7 +29,7 @@ export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
             <p className="font-cinzel text-[9px] font-bold tracking-[0.2em] text-gold-dark uppercase">Venue edit</p>
             <h2 className="mt-1 font-serif text-2xl font-bold text-charcoal sm:text-3xl">Ruang yang memberi cerita pada perayaan.</h2>
           </div>
-          <p className="max-w-xs text-[10px] leading-relaxed text-slate-text sm:text-right">Ballroom, garden, dan pavilion pilihan untuk konsep yang terasa tepat.</p>
+          <p className="max-w-xs text-[10px] leading-relaxed text-slate-text sm:text-right"><span className="font-cinzel text-[8px] font-bold tracking-[0.12em] text-gold-dark uppercase">6 curated venues</span><br />Ballroom, garden, dan pavilion pilihan untuk konsep yang terasa tepat.</p>
         </div>
 
         <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
