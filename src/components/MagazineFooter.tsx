@@ -1,6 +1,7 @@
 "use client";
 
-import { ArrowLeft, ArrowRight, List, MessageCircle, Share2 } from "lucide-react";
+import { ArrowLeft, ArrowRight, List, MessageCircle, Share2, Volume2, VolumeX } from "lucide-react";
+import { useAmbientMusic } from "@/components/AmbientMusic";
 import { padPage } from "@/lib/format";
 import { TOTAL_PAGES } from "@/data/lookbook";
 
@@ -15,6 +16,8 @@ type Props = {
 };
 
 export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, onOpenConsultation, onShare, nextLabel }: Props) {
+  const { isPlaying, toggleMusic } = useAmbientMusic();
+
   return (
     <>
       {/* Mobile dock */}
@@ -46,16 +49,18 @@ export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, o
 
           <button type="button" onClick={onShare} className="h-10 w-10 rounded-full border border-gold/40 text-gold flex items-center justify-center" aria-label="Bagikan lookbook"><Share2 className="w-4 h-4" /></button>
 
+          <button type="button" data-ambient-control onClick={toggleMusic} aria-pressed={isPlaying} className={`h-10 w-10 rounded-full border flex items-center justify-center ${isPlaying ? "border-gold bg-gold/15 text-gold" : "border-gold/40 text-gold"}`} aria-label={isPlaying ? "Matikan musik ambient" : "Nyalakan musik ambient"}>{isPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}</button>
+
           <button type="button" onClick={onOpenConsultation} className="h-10 w-10 rounded-full gold-gradient-bg text-white flex items-center justify-center shadow-md" aria-label="Mulai konsultasi"><MessageCircle className="w-4 h-4" /></button>
 
           <button
             type="button"
             onClick={onNext}
             disabled={currentPage >= TOTAL_PAGES}
-            className="h-10 px-4 rounded-full gold-gradient-bg text-white text-xs font-medium inline-flex items-center gap-1 disabled:opacity-30"
+            className="h-10 w-10 rounded-full gold-gradient-bg text-white inline-flex items-center justify-center disabled:opacity-30"
             aria-label="Halaman berikutnya"
           >
-            Next <ArrowRight className="w-3.5 h-3.5" />
+            <ArrowRight className="w-4 h-4" />
           </button>
         </div>
       </footer>
@@ -63,14 +68,17 @@ export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, o
       {/* Desktop footer — aligned with magazine width */}
       <footer className="hidden md:block sticky bottom-0 z-40 bg-[#0A0A0A]/90 backdrop-blur-xl border-t border-gold/25 text-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-2 py-3 flex items-center justify-between gap-4 text-xs">
-          <button
-            type="button"
-            onClick={onPrev}
-            disabled={currentPage <= 1}
-            className="px-4 py-2 rounded-full border border-gold/35 text-gold hover:bg-gold hover:text-charcoal transition-all inline-flex items-center gap-1.5 disabled:opacity-30"
-          >
-            <ArrowLeft className="w-3.5 h-3.5" /> Prev
-          </button>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={onPrev}
+              disabled={currentPage <= 1}
+              className="px-4 py-2 rounded-full border border-gold/35 text-gold hover:bg-gold hover:text-charcoal transition-all inline-flex items-center gap-1.5 disabled:opacity-30"
+            >
+              <ArrowLeft className="w-3.5 h-3.5" /> Prev
+            </button>
+            <button type="button" data-ambient-control onClick={toggleMusic} aria-pressed={isPlaying} className={`h-9 w-9 rounded-full border flex items-center justify-center ${isPlaying ? "border-gold bg-gold/15 text-gold" : "border-gold/35 text-gold"}`} aria-label={isPlaying ? "Matikan musik ambient" : "Nyalakan musik ambient"}>{isPlaying ? <Volume2 className="w-4 h-4" /> : <VolumeX className="w-4 h-4" />}</button>
+          </div>
 
           <button type="button" onClick={onNext} disabled={currentPage >= TOTAL_PAGES} className="group text-center disabled:opacity-40">
             <span className="block font-cinzel text-[7px] tracking-[0.16em] text-gray-400 uppercase">Next chapter</span>

@@ -1,65 +1,65 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import { Music2, Volume2, VolumeX } from "lucide-react";
+import { createContext, ReactNode, useCallback, useContext, useEffect, useRef, useState } from "react";
 
-export function AmbientMusic() {
+type AmbientMusicState = {
+  isPlaying: boolean;
+  toggleMusic: () => Promise<void>;
+};
+
+const AmbientMusicContext = createContext<AmbientMusicState | null>(null);
+
+export function AmbientMusicProvider({ children }: { children: ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [hasTriedAutoplay, setHasTriedAutoplay] = useState(false);
+
+  const startMusic = useCallback(async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    try {
+      await audio.play();
+      setIsPlaying(true);
+    } catch {
+      setIsPlaying(false);
+    }
+  }, []);
+
+  const toggleMusic = useCallback(async () => {
+    const audio = audioRef.current;
+    if (!audio) return;
+    if (audio.paused) {
+      await startMusic();
+    } else {
+      audio.pause();
+      setIsPlaying(false);
+    }
+  }, [startMusic]);
 
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
     audio.volume = 0.18;
 
-    // Browsers may reject unmuted autoplay. The visible control remains available.
-    const startAmbientMusic = async () => {
-      try {
-        await audio.play();
-        setIsPlaying(true);
-      } catch {
-        setIsPlaying(false);
-      } finally {
-        setHasTriedAutoplay(true);
-      }
+    // Attempt autoplay first. If it is blocked, the first interaction unlocks it.
+    startMusic();
+    const unlockOnFirstInteraction = (event: PointerEvent) => {
+      if ((event.target as HTMLElement | null)?.closest("[data-ambient-control]")) return;
+      startMusic();
     };
-
-    startAmbientMusic();
-  }, []);
-
-  const toggleMusic = async () => {
-    const audio = audioRef.current;
-    if (!audio) return;
-
-    if (audio.paused) {
-      try {
-        await audio.play();
-        setIsPlaying(true);
-      } catch {
-        setIsPlaying(false);
-      }
-      return;
-    }
-
-    audio.pause();
-    setIsPlaying(false);
-  };
+    window.addEventListener("pointerdown", unlockOnFirstInteraction, { once: true });
+    return () => window.removeEventListener("pointerdown", unlockOnFirstInteraction);
+  }, [startMusic]);
 
   return (
-    <>
-      <audio ref={audioRef} src="/music/yiruma.mp3" loop preload="metadata" onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
-      <button
-        type="button"
-        onClick={toggleMusic}
-        aria-pressed={isPlaying}
-        aria-label={isPlaying ? "Matikan musik ambient" : "Nyalakan musik ambient"}
-        className="fixed bottom-[calc(var(--pl-dock-space)+0.75rem)] left-3 z-30 inline-flex items-center gap-2 rounded-full border border-gold/35 bg-charcoal/90 px-3 py-2 text-[8px] font-semibold tracking-[0.12em] text-gold shadow-lg backdrop-blur-md transition hover:border-gold hover:bg-charcoal md:bottom-5 md:left-5 md:z-50"
-      >
-        {isPlaying ? <Volume2 className="h-3.5 w-3.5" /> : <VolumeX className="h-3.5 w-3.5" />}
-        <span>{isPlaying ? "MUSIK ON" : hasTriedAutoplay ? "MUSIK OFF" : "MUSIK"}</span>
-        {isPlaying && <Music2 className="h-3 w-3 animate-pulse" />}
-      </button>
-    </>
+    <AmbientMusicContext.Provider value={{ isPlaying, toggleMusic }}>
+      <audio ref={audioRef} src="/music/yiruma.mp3" loop preload="auto" onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
+      {children}
+    </AmbientMusicContext.Provider>
   );
+}
+
+export function useAmbientMusic() {
+  const context = useContext(AmbientMusicContext);
+  if (!context) throw new Error("useAmbientMusic must be used within AmbientMusicProvider");
+  return context;
 }
