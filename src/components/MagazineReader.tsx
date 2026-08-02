@@ -60,7 +60,7 @@ export function MagazineReader() {
           supabase
             .from("venues")
             .select("name, description, image_url, category")
-            .limit(4),
+            .limit(6),
           supabase
             .from("portfolio_gallery")
             .select("title, image_url")

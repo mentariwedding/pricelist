@@ -26,7 +26,7 @@ export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
           {list.slice(0, 4).map((venue, index) => (
             <article key={venue.title} className="group overflow-hidden rounded-2xl border border-gold/30 bg-white shadow-sm">
               <div className="relative h-44 overflow-hidden">
-                <Image src={venue.image} alt={venue.title} fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1280px) 50vw, 25vw" />
+                <Image src={venue.image} alt={venue.title} fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/55 to-transparent" />
                 <span className="absolute bottom-3 left-3 font-cinzel text-[8px] font-bold tracking-[0.16em] text-gold-light uppercase">0{index + 1} · {venue.tag}</span>
               </div>

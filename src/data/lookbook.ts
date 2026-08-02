@@ -111,7 +111,16 @@ export const SEASONAL_EDITION = {
   note: "Palet dan visual pilihan untuk perayaan yang terasa personal di musim ini.",
 } as const;
 
-export const DEFAULT_VENUES = [
+export type Venue = {
+  image: string;
+  tag: string;
+  title: string;
+  desc: string;
+  coordinates?: string;
+  mapUrl?: string;
+};
+
+export const DEFAULT_VENUES: readonly Venue[] = [
   {
     image: "/images/venue-GedungAntonSoedjarwo.jpg",
     tag: "Grand Reception Hall",
@@ -143,6 +152,18 @@ export const DEFAULT_VENUES = [
     desc: "Pilihan venue dengan atmosfer hangat untuk intimate celebration dan gathering keluarga.",
     coordinates: "-6.8856897898415514, 106.81196784284437",
     mapUrl: "https://www.google.com/maps?q=-6.8856897898415514,106.81196784284437",
+  },
+  {
+    image: "/images/JOURNEY1.jpg",
+    tag: "Outdoor Wedding Venue",
+    title: "YSR Himalaya",
+    desc: "Pilihan venue dengan suasana outdoor yang menyatu dengan dekorasi dan rangkaian seremoni.",
+  },
+  {
+    image: "/images/ROMANCE1.jpg",
+    tag: "Garden Wedding Venue",
+    title: "Bale Kinasih",
+    desc: "Pilihan venue garden untuk perayaan intimate maupun resepsi dengan suasana hangat.",
   },
 ] as const;
 
