@@ -32,8 +32,8 @@ export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
           <p className="max-w-xs text-[10px] leading-relaxed text-slate-text sm:text-right"><span className="font-cinzel text-[8px] font-bold tracking-[0.12em] text-gold-dark uppercase">6 curated venues</span><br />Ballroom, garden, dan pavilion pilihan untuk konsep yang terasa tepat.</p>
         </div>
 
-        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
-          {list.slice(0, 4).map((venue, index) => (
+        <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          {list.slice(0, 6).map((venue, index) => (
             <article key={venue.title} className="group overflow-hidden rounded-2xl border border-gold/30 bg-white shadow-sm">
               <div className="relative h-44 overflow-hidden">
                 <Image src={venue.image} alt={venue.title} fill className="object-cover transition duration-700 group-hover:scale-105" sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw" />
