@@ -158,12 +158,16 @@ export const DEFAULT_VENUES: readonly Venue[] = [
     tag: "Outdoor Wedding Venue",
     title: "YSR Himalaya",
     desc: "Pilihan venue dengan suasana outdoor yang menyatu dengan dekorasi dan rangkaian seremoni.",
+    coordinates: "-6.84036028784743, 106.82876886468237",
+    mapUrl: "https://www.google.com/maps?q=-6.84036028784743,106.82876886468237",
   },
   {
     image: "/images/ROMANCE1.jpg",
     tag: "Garden Wedding Venue",
     title: "Bale Kinasih",
     desc: "Pilihan venue garden untuk perayaan intimate maupun resepsi dengan suasana hangat.",
+    coordinates: "-6.885833938460383, 106.94243204339705",
+    mapUrl: "https://www.google.com/maps?q=-6.885833938460383,106.94243204339705",
   },
 ] as const;
 
