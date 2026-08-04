@@ -35,9 +35,9 @@ export function BrandStoryPage() {
         </section>
 
         <section className="border-t border-gold/25 pt-5 md:col-span-12">
-          <div className="flex flex-col justify-between gap-3 sm:flex-row sm:items-end">
-            <div><p className="font-cinzel text-[8px] font-bold tracking-[0.16em] text-gold-dark uppercase">Meet your team</p><h3 className="mt-1 font-serif text-xl font-semibold text-charcoal">Satu cerita, ditangani oleh banyak tangan yang selaras.</h3></div>
-            <div className="relative h-12 w-24 overflow-hidden border border-gold/30 sm:h-14 sm:w-28"><Image src="/images/crew1.jpg" alt="Mentari wedding crew" fill className="object-cover" sizes="112px" /></div>
+          <div>
+            <p className="font-cinzel text-[8px] font-bold tracking-[0.16em] text-gold-dark uppercase">Meet your team</p>
+            <h3 className="mt-1 font-serif text-xl font-semibold text-charcoal">Satu cerita, ditangani oleh banyak tangan yang selaras.</h3>
           </div>
           <div className="mt-3 grid grid-cols-1 gap-px overflow-hidden rounded-xl border border-gold/25 bg-gold/20 sm:grid-cols-2 lg:grid-cols-4">
             {TEAM_ROLES.map(([role, description], index) => <article key={role} className="relative bg-white/85 p-3"><span className="absolute right-3 top-2 font-serif text-2xl italic text-gold/20">0{index + 1}</span><p className="font-serif text-sm font-semibold text-charcoal">{role}</p><p className="mt-1 max-w-[90%] text-[9px] leading-relaxed text-slate-text">{description}</p></article>)}
