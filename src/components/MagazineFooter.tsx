@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { ArrowLeft, ArrowRight, CalendarCheck, List, MessageCircle, MoreHorizontal, Share2, Volume2, VolumeX } from "lucide-react";
+import { ArrowLeft, ArrowRight, CalendarCheck, CircleHelp, List, MessageCircle, MoreHorizontal, Share2, Volume2, VolumeX } from "lucide-react";
 import { padPage } from "@/lib/format";
 import { TOTAL_PAGES } from "@/data/lookbook";
 import { useAmbientMusic } from "@/components/AmbientMusic";
@@ -13,11 +13,12 @@ type Props = {
   onOpenNavigator: () => void;
   onOpenConsultation: () => void;
   onOpenAvailability: () => void;
+  onAskPage: () => void;
   onShare: () => void;
   nextLabel: string;
 };
 
-export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, onOpenConsultation, onOpenAvailability, onShare, nextLabel }: Props) {
+export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, onOpenConsultation, onOpenAvailability, onAskPage, onShare, nextLabel }: Props) {
   const { isPlaying, volume, toggleMusic, setVolume } = useAmbientMusic();
   const [moreOpen, setMoreOpen] = useState(false);
   const [musicPanelOpen, setMusicPanelOpen] = useState(false);
@@ -39,6 +40,7 @@ export function MagazineFooter({ currentPage, onPrev, onNext, onOpenNavigator, o
               <button type="button" onClick={() => runFromMore(onShare)} className="rounded-xl border border-white/10 bg-white/[0.04] p-2 text-center text-gold"><Share2 className="mx-auto h-4 w-4" /><span className="mt-1 block text-[7px]">Share</span></button>
               <button type="button" onClick={() => runFromMore(onOpenAvailability)} className="rounded-xl border border-white/10 bg-white/[0.04] p-2 text-center text-gold"><CalendarCheck className="mx-auto h-4 w-4" /><span className="mt-1 block text-[7px]">Check Date</span></button>
               <button type="button" data-ambient-control onClick={toggleMusic} className="rounded-xl border border-white/10 bg-white/[0.04] p-2 text-center text-gold">{isPlaying ? <Volume2 className="mx-auto h-4 w-4" /> : <VolumeX className="mx-auto h-4 w-4" />}<span className="mt-1 block text-[7px]">Musik</span></button>
+              <button type="button" onClick={() => runFromMore(onAskPage)} className="rounded-xl border border-white/10 bg-white/[0.04] p-2 text-center text-gold"><CircleHelp className="mx-auto h-4 w-4" /><span className="mt-1 block text-[7px]">Tanya</span></button>
               <button type="button" onClick={() => runFromMore(onOpenConsultation)} className="col-span-2 rounded-xl gold-gradient-bg p-2 text-center text-white"><MessageCircle className="mx-auto h-4 w-4" /><span className="mt-1 block text-[7px] font-semibold">Proposal</span></button>
             </div>
             <div className="mt-3 border-t border-gold/15 pt-2"><div className="flex justify-between text-[8px] text-gray-300"><span>Volume musik</span><span className="text-gold">{volumePercent}%</span></div><input aria-label="Volume musik" type="range" min="0" max="1" step="0.05" value={volume} onChange={(event) => setVolume(Number(event.target.value))} className="mt-1.5 w-full accent-[#c5a059]" /></div>
