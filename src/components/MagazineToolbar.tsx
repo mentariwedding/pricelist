@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { CalendarCheck, ChevronLeft, ChevronRight, List, Printer, Share2, Sun } from "lucide-react";
+import { CalendarCheck, ChevronLeft, ChevronRight, CircleHelp, List, Printer, Share2, Sun } from "lucide-react";
 import { padPage } from "@/lib/format";
 import { TOTAL_PAGES } from "@/data/lookbook";
 
@@ -12,6 +12,7 @@ type Props = {
   onOpenNavigator: () => void;
   onOpenConsultation: () => void;
   onOpenAvailability: () => void;
+  onAskPage: () => void;
 };
 
 const JOURNEY = ["Discover", "Curate", "Plan", "Celebrate"];
@@ -23,7 +24,7 @@ function journeyStep(page: number) {
   return 3;
 }
 
-export function MagazineToolbar({ currentPage, onPrev, onNext, onOpenNavigator, onOpenConsultation, onOpenAvailability }: Props) {
+export function MagazineToolbar({ currentPage, onPrev, onNext, onOpenNavigator, onOpenConsultation, onOpenAvailability, onAskPage }: Props) {
   const [shared, setShared] = useState(false);
   const share = async () => {
     const shareData = { title: "Mentari Wedding Lookbook", text: "Wedding Investment Lookbook — Mentari Wedding Organizer", url: window.location.href };
@@ -58,6 +59,7 @@ export function MagazineToolbar({ currentPage, onPrev, onNext, onOpenNavigator, 
           <button type="button" onClick={() => window.print()} className="px-2.5 py-1.5 rounded-full border border-gold/35 text-gold hover:bg-gold hover:text-charcoal transition-all inline-flex items-center gap-1"><Printer className="w-3.5 h-3.5" /> PDF</button>
           <button type="button" onClick={share} className="px-2.5 py-1.5 rounded-full border border-gold/35 text-gold hover:bg-gold hover:text-charcoal transition-all inline-flex items-center gap-1"><Share2 className="w-3.5 h-3.5" /> {shared ? "Copied" : "Share"}</button>
           <button type="button" onClick={onOpenAvailability} className="px-2.5 py-1.5 rounded-full border border-gold/35 text-gold hover:bg-gold hover:text-charcoal transition-all inline-flex items-center gap-1"><CalendarCheck className="w-3.5 h-3.5" /> Check Date</button>
+          <button type="button" onClick={onAskPage} className="h-8 w-8 rounded-full border border-gold/35 text-gold hover:bg-gold hover:text-charcoal transition-all inline-flex items-center justify-center" aria-label="Tanyakan halaman ini"><CircleHelp className="w-3.5 h-3.5" /></button>
           <button type="button" onClick={onOpenConsultation} className="px-3 py-1.5 rounded-full gold-gradient-bg text-white font-semibold hover:brightness-105 transition-all shadow-md">Request Proposal</button>
         </div>
       </div>

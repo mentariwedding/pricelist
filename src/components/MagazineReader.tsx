@@ -30,6 +30,7 @@ import { DEFAULT_VENUES, GALLERY, TOC_ITEMS, TOTAL_PAGES } from "@/data/lookbook
 import { ConsultationModal } from "@/components/ConsultationModal";
 import { AmbientMusicProvider } from "@/components/AmbientMusic";
 import { supabase, isSupabaseConfigured } from "@/lib/supabase";
+import { waLink } from "@/lib/format";
 
 type VenueItem = {
   image: string;
@@ -153,6 +154,12 @@ export function MagazineReader() {
     if (slug) window.history.replaceState(null, "", `#${slug}`);
   }, [currentPage]);
 
+  const askCurrentPage = useCallback(() => {
+    const chapter = TOC_ITEMS.find((item) => item.page === currentPage)?.title.replace(/^\d+\. /, "") ?? "Lookbook Mentari Wedding";
+    const message = `Halo Mentari Wedding, saya sedang membaca halaman “${chapter}” dan ingin menanyakan informasi lebih lanjut.`;
+    window.open(waLink(message), "_blank", "noopener,noreferrer");
+  }, [currentPage]);
+
   const nextLabel = TOC_ITEMS.find((item) => item.page === currentPage + 1)?.title.replace(/^\d+\. /, "") ?? "Back Cover & Studio Contact";
 
   const pages = [
@@ -188,6 +195,7 @@ export function MagazineReader() {
         onOpenNavigator={() => setNavigatorOpen(true)}
         onOpenConsultation={() => setConsultationIntent("consultation")}
         onOpenAvailability={() => setConsultationIntent("availability")}
+        onAskPage={askCurrentPage}
       />
 
       <main
@@ -239,6 +247,7 @@ export function MagazineReader() {
         onOpenNavigator={() => setNavigatorOpen(true)}
         onOpenConsultation={() => setConsultationIntent("consultation")}
         onOpenAvailability={() => setConsultationIntent("availability")}
+        onAskPage={askCurrentPage}
         onShare={shareLookbook}
         nextLabel={nextLabel}
       />
