@@ -45,21 +45,22 @@ export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
                 <p className="font-cinzel text-[7px] font-bold tracking-[0.14em] text-gold-dark uppercase">Venue partner · curated by Mentari</p>
                 <p className="text-[10px] leading-relaxed text-slate-text">{venue.desc}</p>
                 {venue.coordinates && (
-                  <div className="mt-3 overflow-hidden border border-gold/20 bg-cream/45">
-                    <div className="relative h-28 bg-cream">
+                  <div className="relative mt-3 overflow-hidden border border-gold/35 bg-charcoal">
+                    <div className="relative h-32 overflow-hidden">
                       <iframe
                         title={`Peta lokasi ${venue.title}`}
                         src={`https://www.google.com/maps?q=${encodeURIComponent(venue.coordinates)}&z=15&output=embed`}
                         loading="lazy"
                         referrerPolicy="no-referrer-when-downgrade"
-                        className="absolute inset-0 h-full w-full border-0 grayscale-[0.25] contrast-[0.9]"
+                        className="pointer-events-none absolute -inset-3 h-[calc(100%+1.5rem)] w-[calc(100%+1.5rem)] border-0 scale-110 grayscale contrast-[1.15] brightness-[0.6]"
                       />
-                      <span className="pointer-events-none absolute left-2 top-2 rounded-full bg-charcoal/85 px-2 py-1 font-cinzel text-[6px] font-bold tracking-[0.12em] text-gold-light uppercase">Map preview</span>
+                      <div className="pointer-events-none absolute inset-0 bg-[linear-gradient(rgba(197,160,89,.11)_1px,transparent_1px),linear-gradient(90deg,rgba(197,160,89,.11)_1px,transparent_1px)] bg-[size:18px_18px]" />
+                      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_0,rgba(20,20,20,.18)_45%,rgba(20,20,20,.72)_100%)]" />
+                      <span className="pointer-events-none absolute left-2.5 top-2.5 font-cinzel text-[6px] font-bold tracking-[0.16em] text-gold-light uppercase">Mentari location guide · 0{index + 1}</span>
+                      <span className="pointer-events-none absolute left-1/2 top-1/2 flex h-9 w-9 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border border-gold bg-charcoal/90 text-gold shadow-[0_0_0_6px_rgba(197,160,89,.16)]"><MapPin className="h-4 w-4" /></span>
+                      <span className="pointer-events-none absolute bottom-2.5 left-2.5 max-w-[70%] truncate font-mono text-[7px] text-white/90">{venue.coordinates}</span>
                     </div>
-                    <div className="flex items-center justify-between gap-2 px-2.5 py-2">
-                      <span className="truncate font-mono text-[8px] text-slate-text">{venue.coordinates}</span>
-                      {venue.mapUrl && <a href={venue.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-1 text-[8px] font-semibold text-gold-dark hover:text-charcoal"><Navigation className="h-3 w-3" /> Open Maps</a>}
-                    </div>
+                    {venue.mapUrl && <a href={venue.mapUrl} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between border-t border-gold/25 bg-[#171512] px-2.5 py-2 font-cinzel text-[7px] font-bold tracking-[0.12em] text-gold-light uppercase transition hover:bg-gold hover:text-charcoal"><span>Open route in Google Maps</span><Navigation className="h-3.5 w-3.5" /></a>}
                   </div>
                 )}
               </div>
