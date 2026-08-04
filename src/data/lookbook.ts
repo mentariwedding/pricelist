@@ -1,5 +1,10 @@
 export const TOTAL_PAGES = 20;
 
+export const LOOKBOOK_EDITION = {
+  version: "1.0",
+  updated: "August 2026",
+} as const;
+
 export const TOC_ITEMS = [
   { title: "01. Cover & Executive Edition", page: 1 },
   { title: "02. Table of Contents & Welcome", page: 2 },

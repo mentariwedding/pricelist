@@ -4,7 +4,9 @@ import { createContext, ReactNode, useCallback, useContext, useEffect, useRef, u
 
 type AmbientMusicState = {
   isPlaying: boolean;
+  volume: number;
   toggleMusic: () => Promise<void>;
+  setVolume: (volume: number) => void;
 };
 
 const AmbientMusicContext = createContext<AmbientMusicState | null>(null);
@@ -12,6 +14,7 @@ const AmbientMusicContext = createContext<AmbientMusicState | null>(null);
 export function AmbientMusicProvider({ children }: { children: ReactNode }) {
   const audioRef = useRef<HTMLAudioElement>(null);
   const [isPlaying, setIsPlaying] = useState(false);
+  const [volume, setVolumeState] = useState(0.75);
 
   const startMusic = useCallback(async () => {
     const audio = audioRef.current;
@@ -22,6 +25,14 @@ export function AmbientMusicProvider({ children }: { children: ReactNode }) {
     } catch {
       setIsPlaying(false);
     }
+  }, []);
+
+  const setVolume = useCallback((nextVolume: number) => {
+    const normalized = Math.max(0, Math.min(1, nextVolume));
+    const audio = audioRef.current;
+    if (audio) audio.volume = normalized;
+    setVolumeState(normalized);
+    window.localStorage.setItem("mentari-ambient-volume", String(normalized));
   }, []);
 
   const toggleMusic = useCallback(async () => {
@@ -40,7 +51,10 @@ export function AmbientMusicProvider({ children }: { children: ReactNode }) {
   useEffect(() => {
     const audio = audioRef.current;
     if (!audio) return;
-    audio.volume = 0.75;
+    const storedVolume = Number(window.localStorage.getItem("mentari-ambient-volume"));
+    const initialVolume = Number.isFinite(storedVolume) && storedVolume > 0 && storedVolume <= 1 ? storedVolume : 0.75;
+    audio.volume = initialVolume;
+    setVolumeState(initialVolume);
 
     const savedPreference = window.localStorage.getItem("mentari-ambient-music");
     // Respect a previous decision to keep the experience silent.
@@ -57,7 +71,7 @@ export function AmbientMusicProvider({ children }: { children: ReactNode }) {
   }, [startMusic]);
 
   return (
-    <AmbientMusicContext.Provider value={{ isPlaying, toggleMusic }}>
+    <AmbientMusicContext.Provider value={{ isPlaying, volume, toggleMusic, setVolume }}>
       <audio ref={audioRef} src="/music/yiruma.mp3" loop preload="auto" onPlay={() => setIsPlaying(true)} onPause={() => setIsPlaying(false)} />
       {children}
     </AmbientMusicContext.Provider>

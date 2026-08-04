@@ -42,6 +42,10 @@ type VenueItem = {
 
 type GalleryItem = { image: string; caption: string };
 
+const PAGE_SLUGS = [
+  "cover", "contents", "our-story", "mentari-standard", "aesthetics", "venues", "vendors", "gallery", "wedding-details", "lamaran", "siraman", "wedding-crew", "intimate-journey", "royal-romance", "imperial-luxury", "addons", "terms", "calculator", "testimony", "contact",
+] as const;
+
 export function MagazineReader() {
   const [currentPage, setCurrentPage] = useState(1);
   const [venues, setVenues] = useState<VenueItem[]>([]);
@@ -49,6 +53,12 @@ export function MagazineReader() {
   const [navigatorOpen, setNavigatorOpen] = useState(false);
   const [consultationIntent, setConsultationIntent] = useState<"consultation" | "availability" | null>(null);
   const touchRef = useRef<{ x: number; y: number } | null>(null);
+
+  useEffect(() => {
+    const initialSlug = window.location.hash.replace("#", "");
+    const initialIndex = PAGE_SLUGS.indexOf(initialSlug as (typeof PAGE_SLUGS)[number]);
+    if (initialIndex >= 0) setCurrentPage(initialIndex + 1);
+  }, []);
 
   useEffect(() => {
     if (!isSupabaseConfigured) return;
@@ -139,6 +149,8 @@ export function MagazineReader() {
 
   useEffect(() => {
     window.scrollTo({ top: 0, behavior: "auto" });
+    const slug = PAGE_SLUGS[currentPage - 1];
+    if (slug) window.history.replaceState(null, "", `#${slug}`);
   }, [currentPage]);
 
   const nextLabel = TOC_ITEMS.find((item) => item.page === currentPage + 1)?.title.replace(/^\d+\. /, "") ?? "Back Cover & Studio Contact";
@@ -226,6 +238,7 @@ export function MagazineReader() {
         onNext={goNext}
         onOpenNavigator={() => setNavigatorOpen(true)}
         onOpenConsultation={() => setConsultationIntent("consultation")}
+        onOpenAvailability={() => setConsultationIntent("availability")}
         onShare={shareLookbook}
         nextLabel={nextLabel}
       />

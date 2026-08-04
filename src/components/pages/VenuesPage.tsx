@@ -45,11 +45,20 @@ export function VenuesPage({ venues }: { venues?: VenueItem[] }) {
                 <p className="font-cinzel text-[7px] font-bold tracking-[0.14em] text-gold-dark uppercase">Venue partner · curated by Mentari</p>
                 <p className="text-[10px] leading-relaxed text-slate-text">{venue.desc}</p>
                 {venue.coordinates && (
-                  <div className="mt-3 border-t border-gold/15 pt-2">
-                    <p className="font-cinzel text-[7px] font-bold tracking-[0.13em] text-gold-dark uppercase">Venue coordinates</p>
-                    <div className="mt-1 flex items-center justify-between gap-2">
+                  <div className="mt-3 overflow-hidden border border-gold/20 bg-cream/45">
+                    <div className="relative h-28 bg-cream">
+                      <iframe
+                        title={`Peta lokasi ${venue.title}`}
+                        src={`https://www.google.com/maps?q=${encodeURIComponent(venue.coordinates)}&z=15&output=embed`}
+                        loading="lazy"
+                        referrerPolicy="no-referrer-when-downgrade"
+                        className="absolute inset-0 h-full w-full border-0 grayscale-[0.25] contrast-[0.9]"
+                      />
+                      <span className="pointer-events-none absolute left-2 top-2 rounded-full bg-charcoal/85 px-2 py-1 font-cinzel text-[6px] font-bold tracking-[0.12em] text-gold-light uppercase">Map preview</span>
+                    </div>
+                    <div className="flex items-center justify-between gap-2 px-2.5 py-2">
                       <span className="truncate font-mono text-[8px] text-slate-text">{venue.coordinates}</span>
-                      {venue.mapUrl && <a href={venue.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-1 text-[8px] font-semibold text-gold-dark hover:text-charcoal"><Navigation className="h-3 w-3" /> Maps</a>}
+                      {venue.mapUrl && <a href={venue.mapUrl} target="_blank" rel="noopener noreferrer" className="inline-flex shrink-0 items-center gap-1 text-[8px] font-semibold text-gold-dark hover:text-charcoal"><Navigation className="h-3 w-3" /> Open Maps</a>}
                     </div>
                   </div>
                 )}

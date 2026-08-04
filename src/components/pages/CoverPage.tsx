@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import { Sun } from "lucide-react";
 import { PageShell } from "@/components/PageShell";
-import { IMAGES, SEASONAL_EDITION, TOTAL_PAGES } from "@/data/lookbook";
+import { IMAGES, LOOKBOOK_EDITION, SEASONAL_EDITION, TOTAL_PAGES } from "@/data/lookbook";
 import { padPage } from "@/lib/format";
 
 export function CoverPage() {
@@ -72,8 +72,9 @@ export function CoverPage() {
         </div>
 
         <div className="page-footer-bar border-white/20 text-[10px] sm:text-xs">
-          <span className="text-gray-300 font-light text-left leading-snug">
+          <span className="text-gray-200 font-light text-left leading-snug">
             Cibadak & Sukabumi Executive Edition
+            <small className="mt-0.5 block font-cinzel text-[7px] font-bold tracking-[0.12em] text-gold/90 uppercase">Version {LOOKBOOK_EDITION.version} · Updated {LOOKBOOK_EDITION.updated}</small>
           </span>
           <span className="font-cinzel text-gold font-bold tracking-widest shrink-0">
             PAGE {padPage(1)} / {padPage(TOTAL_PAGES)}

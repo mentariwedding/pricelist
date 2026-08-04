@@ -32,6 +32,17 @@ const TABLE_DECOR = [
   { left: "79%", top: "72%", rotate: 16, label: "2026 / 27" },
 ];
 
+function photoCredits(image: string) {
+  const source = image.toLowerCase();
+  if (source.includes("journey")) return { concept: "The Intimate Journey", vendor: "Mentari curated wedding team" };
+  if (source.includes("romance")) return { concept: "The Royal Romance", vendor: "Mentari curated wedding team" };
+  if (source.includes("luxury")) return { concept: "The Imperial Luxury", vendor: "Mentari curated wedding team" };
+  if (source.includes("lamaran")) return { concept: "The Engagement Edit", vendor: "Mentari Wedding · Lamaran Collection" };
+  if (source.includes("siraman") || source.includes("hena") || source.includes("adat")) return { concept: "Ritual & Adat Collection", vendor: "Mentari Wedding · Curated ceremonial team" };
+  if (source.includes("crew") || source.includes("mc")) return { concept: "Wedding Crew Service", vendor: "Mentari coordination team" };
+  return { concept: "Mentari Wedding Visual Archive", vendor: "Curated vendor partners" };
+}
+
 export function GalleryPage({ items }: { items?: GalleryItem[] }) {
   const photos = useMemo(() => {
     const local: GalleryItem[] = GALLERY.map((item) => ({
@@ -58,6 +69,7 @@ export function GalleryPage({ items }: { items?: GalleryItem[] }) {
   );
   const active = deskPhotos[selected] ?? deskPhotos[0];
   const lightboxPhoto = lightboxIndex == null ? null : photos[lightboxIndex];
+  const lightboxCredit = lightboxPhoto ? photoCredits(lightboxPhoto.image) : null;
   const collectionCount = Math.ceil(photos.length / CARD_POSES.length);
 
   useEffect(() => {
@@ -283,9 +295,10 @@ export function GalleryPage({ items }: { items?: GalleryItem[] }) {
                   <div className="relative h-[68vh] w-full overflow-hidden rounded-sm border border-gold/35 bg-charcoal shadow-[0_28px_80px_rgba(0,0,0,.65)] sm:h-[74vh]">
                     <Image src={lightboxPhoto.image} alt={lightboxPhoto.caption} fill className="object-contain" sizes="(max-width: 1024px) 100vw, 1024px" />
                   </div>
-                  <figcaption className="mt-4 flex w-full items-end justify-between border-t border-gold/25 pt-3 text-white">
+                  <figcaption className="mt-4 flex w-full items-end justify-between gap-4 border-t border-gold/25 pt-3 text-white">
                     <div><p className="font-cinzel text-[8px] font-bold tracking-[0.2em] text-gold uppercase">Mentari visual archive · Frame {String(lightboxIndex + 1).padStart(2, "0")}</p><p className="mt-1 font-serif text-lg sm:text-xl">{lightboxPhoto.caption}</p></div>
-                    <Maximize2 className="mb-1 h-4 w-4 text-gold/60" />
+                    <div className="border-l border-gold/25 pl-3 text-left sm:pl-4 sm:text-right"><p className="font-cinzel text-[7px] font-bold tracking-[0.13em] text-gold uppercase">Photo credit</p><p className="mt-1 text-[8px] text-gray-200 sm:text-[9px]">Concept: {lightboxCredit?.concept}</p><p className="text-[8px] text-gray-300 sm:text-[9px]">Vendor: {lightboxCredit?.vendor}</p></div>
+                    <Maximize2 className="mb-1 h-4 w-4 shrink-0 text-gold/70" />
                   </figcaption>
                 </motion.figure>
               </motion.div>
